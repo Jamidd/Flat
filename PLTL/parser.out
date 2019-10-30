@@ -1,0 +1,651 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> formula
+Rule 1     formula -> formula AND formula
+Rule 2     formula -> formula OR formula
+Rule 3     formula -> formula IMPLIES formula
+Rule 4     formula -> formula DIMPLIES formula
+Rule 5     formula -> formula SINCE formula
+Rule 6     formula -> YESTERDAY formula
+Rule 7     formula -> ONCE formula
+Rule 8     formula -> HISTORICALLY formula
+Rule 9     formula -> NOT formula
+Rule 10    formula -> TRUE
+Rule 11    formula -> FALSE
+Rule 12    formula -> TERM
+Rule 13    formula -> LPAR formula RPAR
+
+Terminals, with rules where they appear
+
+AND                  : 1
+DIMPLIES             : 4
+FALSE                : 11
+HISTORICALLY         : 8
+IMPLIES              : 3
+LPAR                 : 13
+NOT                  : 9
+ONCE                 : 7
+OR                   : 2
+RPAR                 : 13
+SINCE                : 5
+TERM                 : 12
+TRUE                 : 10
+YESTERDAY            : 6
+error                : 
+
+Nonterminals, with rules where they appear
+
+formula              : 1 1 2 2 3 3 4 4 5 5 6 7 8 9 13 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 1
+
+state 1
+
+    (0) S' -> formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             shift and go to state 10
+    OR              shift and go to state 11
+    IMPLIES         shift and go to state 12
+    DIMPLIES        shift and go to state 13
+    SINCE           shift and go to state 14
+
+
+state 2
+
+    (6) formula -> YESTERDAY . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 15
+
+state 3
+
+    (7) formula -> ONCE . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 16
+
+state 4
+
+    (8) formula -> HISTORICALLY . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 17
+
+state 5
+
+    (9) formula -> NOT . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 18
+
+state 6
+
+    (10) formula -> TRUE .
+
+    AND             reduce using rule 10 (formula -> TRUE .)
+    OR              reduce using rule 10 (formula -> TRUE .)
+    IMPLIES         reduce using rule 10 (formula -> TRUE .)
+    DIMPLIES        reduce using rule 10 (formula -> TRUE .)
+    SINCE           reduce using rule 10 (formula -> TRUE .)
+    $end            reduce using rule 10 (formula -> TRUE .)
+    RPAR            reduce using rule 10 (formula -> TRUE .)
+
+
+state 7
+
+    (11) formula -> FALSE .
+
+    AND             reduce using rule 11 (formula -> FALSE .)
+    OR              reduce using rule 11 (formula -> FALSE .)
+    IMPLIES         reduce using rule 11 (formula -> FALSE .)
+    DIMPLIES        reduce using rule 11 (formula -> FALSE .)
+    SINCE           reduce using rule 11 (formula -> FALSE .)
+    $end            reduce using rule 11 (formula -> FALSE .)
+    RPAR            reduce using rule 11 (formula -> FALSE .)
+
+
+state 8
+
+    (12) formula -> TERM .
+
+    AND             reduce using rule 12 (formula -> TERM .)
+    OR              reduce using rule 12 (formula -> TERM .)
+    IMPLIES         reduce using rule 12 (formula -> TERM .)
+    DIMPLIES        reduce using rule 12 (formula -> TERM .)
+    SINCE           reduce using rule 12 (formula -> TERM .)
+    $end            reduce using rule 12 (formula -> TERM .)
+    RPAR            reduce using rule 12 (formula -> TERM .)
+
+
+state 9
+
+    (13) formula -> LPAR . formula RPAR
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 19
+
+state 10
+
+    (1) formula -> formula AND . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 20
+
+state 11
+
+    (2) formula -> formula OR . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 21
+
+state 12
+
+    (3) formula -> formula IMPLIES . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 22
+
+state 13
+
+    (4) formula -> formula DIMPLIES . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 23
+
+state 14
+
+    (5) formula -> formula SINCE . formula
+    (1) formula -> . formula AND formula
+    (2) formula -> . formula OR formula
+    (3) formula -> . formula IMPLIES formula
+    (4) formula -> . formula DIMPLIES formula
+    (5) formula -> . formula SINCE formula
+    (6) formula -> . YESTERDAY formula
+    (7) formula -> . ONCE formula
+    (8) formula -> . HISTORICALLY formula
+    (9) formula -> . NOT formula
+    (10) formula -> . TRUE
+    (11) formula -> . FALSE
+    (12) formula -> . TERM
+    (13) formula -> . LPAR formula RPAR
+
+    YESTERDAY       shift and go to state 2
+    ONCE            shift and go to state 3
+    HISTORICALLY    shift and go to state 4
+    NOT             shift and go to state 5
+    TRUE            shift and go to state 6
+    FALSE           shift and go to state 7
+    TERM            shift and go to state 8
+    LPAR            shift and go to state 9
+
+    formula                        shift and go to state 24
+
+state 15
+
+    (6) formula -> YESTERDAY formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 6 (formula -> YESTERDAY formula .)
+    OR              reduce using rule 6 (formula -> YESTERDAY formula .)
+    IMPLIES         reduce using rule 6 (formula -> YESTERDAY formula .)
+    DIMPLIES        reduce using rule 6 (formula -> YESTERDAY formula .)
+    SINCE           reduce using rule 6 (formula -> YESTERDAY formula .)
+    $end            reduce using rule 6 (formula -> YESTERDAY formula .)
+    RPAR            reduce using rule 6 (formula -> YESTERDAY formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 16
+
+    (7) formula -> ONCE formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 7 (formula -> ONCE formula .)
+    OR              reduce using rule 7 (formula -> ONCE formula .)
+    IMPLIES         reduce using rule 7 (formula -> ONCE formula .)
+    DIMPLIES        reduce using rule 7 (formula -> ONCE formula .)
+    SINCE           reduce using rule 7 (formula -> ONCE formula .)
+    $end            reduce using rule 7 (formula -> ONCE formula .)
+    RPAR            reduce using rule 7 (formula -> ONCE formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 17
+
+    (8) formula -> HISTORICALLY formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 8 (formula -> HISTORICALLY formula .)
+    OR              reduce using rule 8 (formula -> HISTORICALLY formula .)
+    IMPLIES         reduce using rule 8 (formula -> HISTORICALLY formula .)
+    DIMPLIES        reduce using rule 8 (formula -> HISTORICALLY formula .)
+    SINCE           reduce using rule 8 (formula -> HISTORICALLY formula .)
+    $end            reduce using rule 8 (formula -> HISTORICALLY formula .)
+    RPAR            reduce using rule 8 (formula -> HISTORICALLY formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 18
+
+    (9) formula -> NOT formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 9 (formula -> NOT formula .)
+    OR              reduce using rule 9 (formula -> NOT formula .)
+    IMPLIES         reduce using rule 9 (formula -> NOT formula .)
+    DIMPLIES        reduce using rule 9 (formula -> NOT formula .)
+    SINCE           reduce using rule 9 (formula -> NOT formula .)
+    $end            reduce using rule 9 (formula -> NOT formula .)
+    RPAR            reduce using rule 9 (formula -> NOT formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 19
+
+    (13) formula -> LPAR formula . RPAR
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    RPAR            shift and go to state 25
+    AND             shift and go to state 10
+    OR              shift and go to state 11
+    IMPLIES         shift and go to state 12
+    DIMPLIES        shift and go to state 13
+    SINCE           shift and go to state 14
+
+
+state 20
+
+    (1) formula -> formula AND formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 1 (formula -> formula AND formula .)
+    OR              reduce using rule 1 (formula -> formula AND formula .)
+    IMPLIES         reduce using rule 1 (formula -> formula AND formula .)
+    DIMPLIES        reduce using rule 1 (formula -> formula AND formula .)
+    SINCE           reduce using rule 1 (formula -> formula AND formula .)
+    $end            reduce using rule 1 (formula -> formula AND formula .)
+    RPAR            reduce using rule 1 (formula -> formula AND formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 21
+
+    (2) formula -> formula OR formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 2 (formula -> formula OR formula .)
+    OR              reduce using rule 2 (formula -> formula OR formula .)
+    IMPLIES         reduce using rule 2 (formula -> formula OR formula .)
+    DIMPLIES        reduce using rule 2 (formula -> formula OR formula .)
+    SINCE           reduce using rule 2 (formula -> formula OR formula .)
+    $end            reduce using rule 2 (formula -> formula OR formula .)
+    RPAR            reduce using rule 2 (formula -> formula OR formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 22
+
+    (3) formula -> formula IMPLIES formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 3 (formula -> formula IMPLIES formula .)
+    OR              reduce using rule 3 (formula -> formula IMPLIES formula .)
+    IMPLIES         reduce using rule 3 (formula -> formula IMPLIES formula .)
+    DIMPLIES        reduce using rule 3 (formula -> formula IMPLIES formula .)
+    SINCE           reduce using rule 3 (formula -> formula IMPLIES formula .)
+    $end            reduce using rule 3 (formula -> formula IMPLIES formula .)
+    RPAR            reduce using rule 3 (formula -> formula IMPLIES formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 23
+
+    (4) formula -> formula DIMPLIES formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 4 (formula -> formula DIMPLIES formula .)
+    OR              reduce using rule 4 (formula -> formula DIMPLIES formula .)
+    IMPLIES         reduce using rule 4 (formula -> formula DIMPLIES formula .)
+    DIMPLIES        reduce using rule 4 (formula -> formula DIMPLIES formula .)
+    SINCE           reduce using rule 4 (formula -> formula DIMPLIES formula .)
+    $end            reduce using rule 4 (formula -> formula DIMPLIES formula .)
+    RPAR            reduce using rule 4 (formula -> formula DIMPLIES formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 24
+
+    (5) formula -> formula SINCE formula .
+    (1) formula -> formula . AND formula
+    (2) formula -> formula . OR formula
+    (3) formula -> formula . IMPLIES formula
+    (4) formula -> formula . DIMPLIES formula
+    (5) formula -> formula . SINCE formula
+
+    AND             reduce using rule 5 (formula -> formula SINCE formula .)
+    OR              reduce using rule 5 (formula -> formula SINCE formula .)
+    IMPLIES         reduce using rule 5 (formula -> formula SINCE formula .)
+    DIMPLIES        reduce using rule 5 (formula -> formula SINCE formula .)
+    SINCE           reduce using rule 5 (formula -> formula SINCE formula .)
+    $end            reduce using rule 5 (formula -> formula SINCE formula .)
+    RPAR            reduce using rule 5 (formula -> formula SINCE formula .)
+
+  ! AND             [ shift and go to state 10 ]
+  ! OR              [ shift and go to state 11 ]
+  ! IMPLIES         [ shift and go to state 12 ]
+  ! DIMPLIES        [ shift and go to state 13 ]
+  ! SINCE           [ shift and go to state 14 ]
+
+
+state 25
+
+    (13) formula -> LPAR formula RPAR .
+
+    AND             reduce using rule 13 (formula -> LPAR formula RPAR .)
+    OR              reduce using rule 13 (formula -> LPAR formula RPAR .)
+    IMPLIES         reduce using rule 13 (formula -> LPAR formula RPAR .)
+    DIMPLIES        reduce using rule 13 (formula -> LPAR formula RPAR .)
+    SINCE           reduce using rule 13 (formula -> LPAR formula RPAR .)
+    $end            reduce using rule 13 (formula -> LPAR formula RPAR .)
+    RPAR            reduce using rule 13 (formula -> LPAR formula RPAR .)
+
