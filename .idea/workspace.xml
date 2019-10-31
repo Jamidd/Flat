@@ -2,24 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff2316a-ebd5-4046-942f-22f183e4ed29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/jaime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dfa.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/formula.mona" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FOLTDAR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FOLTDAR.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RewardMachine.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DFA2RM/dependencies.sh" beforeDir="false" afterPath="$PROJECT_DIR$/DFA2RM/dependencies.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DFA2RM/dfa2rm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DFA2RM/dfa2rm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LTLf/Lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTLf/Lexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LTLf/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTLf/Parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LTLf/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/LTLf/parser.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LTLf/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTLf/parsetab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PLTL/Lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/PLTL/Lexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PLTL/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/PLTL/Parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuperRewardMachine.dot" beforeDir="false" afterPath="$PROJECT_DIR$/SuperRewardMachine.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuperRewardMachine.dot.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SuperRewardMachine.dot.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RewardMachine.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuperRewardMachine.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuperRewardMachine.dot.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dfa.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/foltdar.py" beforeDir="false" afterPath="$PROJECT_DIR$/foltdar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formula.mona" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inicio.ltlf" beforeDir="false" afterPath="$PROJECT_DIR$/inicio.ltlf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

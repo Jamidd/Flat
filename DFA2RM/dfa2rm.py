@@ -49,6 +49,7 @@ def bdd_to_formula(bdd, bd):
 
 
 def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https://spot.lrde.epita.fr/ipynb/product.html
+    # TODO consolidar caminos equivalentes
     result = {
         'alphabet': set().union(*[x["alphabet"] for x in automata]),
         'states': set(),
@@ -92,7 +93,7 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
                 result["states"].add(osrc)
                 result["states"].add(dest)
                 # result["reward"][dest] = reward  // This is if you want the reward at the node instead of the edge
-                result["transitions"][(osrc, bdd_to_formula(bdd, cond))] = (dest, reward) if reward > 0 else (dest, )
+                result["transitions"][(osrc, bdd_to_formula(bdd, cond))] = (dest, reward) # dest // This is if you want the reward at the node instead of the edge
     if minimize:
         result = DFA.dfa_co_reachable(result)
     # rename with actual reward
@@ -108,11 +109,10 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
     rm["alphabet"] = result["alphabet"]
     new_states = dict()
 
-    """ // This is if you want the reward at the node instead of the edge
-    for k in result["reward"]:
-        new_states[k] = f'''{k} \n{"{"}{result["reward"][k]}{"}"}'''
+    for k in result["states"]: # result["reward"]: // This is if you want the reward at the node instead of the edge
+        new_states[k] = f'''{k}''' #  \n{"{"}{result["reward"][k]}{"}"}'''
         rm["states"].add(new_states[k])
-    """
+
     if result["initial_state"] not in new_states:
         new_states[result["initial_state"]] = f"""{result["initial_state"]}\n{"{"}0{"}"}"""
 
@@ -120,14 +120,14 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
 
     new_transitions = dict()
     for ini in result["transitions"]:
-        end = result["transitions"][ini]
+        end, reward = result["transitions"][ini]
 
-        ini = (new_states[ini[0]], ini[1])
+        #ini = (new_states[ini[0]], ini[1]) // This is if you want the reward at the node instead of the edge
+        ini = (new_states[ini[0]], str((ini[1], reward) if reward > 0 else ini[1]))
         end = new_states[end]
+        reward = result["reward"][end]
         new_transitions[ini] = end
-
     rm["transitions"] = new_transitions
-
     return rm
 
 
@@ -146,3 +146,30 @@ def get_dfas(automata, rewards, reward=False, minimize=False):
 def automatas_to_rm(automata, rewards, minimize=False):
     automata = get_dfas(automata, rewards, reward=True, minimize=False)
     return dfa_intersection_to_rm(automata, minimize)
+
+
+def write_hoa(dfa, name):
+    pass
+
+def write_qrm(dfa, name):
+    qrm = ''
+    qrm += f'{dfa["initial_state"]}  # initial state\n'
+    for tra in dfa['transitions']:
+        ini = int(tra[0].replace('S', ''))
+        end = int(dfa['transitions'][tra].replace('S', ''))
+        try:
+            lbl, reward = eval(tra[1])
+        except SyntaxError:
+            lbl = tra[1]
+            reward = 0
+        lbl = lbl if lbl != '' else 'True'
+        qrm += f'''({ini}, {end}, '{lbl}', ConstantRewardFunction({reward}))\n'''
+    with open(f'{name}.txt', 'w') as file:
+        file.write(qrm)
+
+
+def write_output(output_type, dfa, name):
+    if output_type == 'hoa':
+        write_hoa(dfa, name)
+    elif output_type == 'qrm':
+        write_qrm(dfa, name)

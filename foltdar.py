@@ -25,9 +25,15 @@ except ModuleNotFoundError:
     else:
         exit()
 
-from dfa2rm import automatas_to_rm, get_dfas, dfa_intersection_to_rm, read_formula
+from dfa2rm import automatas_to_rm, get_dfas, dfa_intersection_to_rm, read_formula, write_output
+
 
 if __name__ == '__main__':
+    def send_error(text, help = True):
+        print(f"ERROR:\n{'-' * len(text)}\n{text}\n{'-' * len(text)}")
+        if help:
+            parser.print_help()
+        exit()
     #  parse input
     parser = argparse.ArgumentParser(description='Translate Formal Lenguages to DFA or Reward Machines.')
     parser.add_argument('-a', '--all', dest='all', action='store_true', default=False, help='Translate from all types of formulas (special restrictions added)')
@@ -40,7 +46,9 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--dfa', dest='dfa', action='store_true', default=False, help='Return DFA only')
     parser.add_argument('-m', '--rm', dest='rm', action='store_true', default=False, help='Return Reward Machine only (Default)')
     parser.add_argument('-b', '--dfarm', dest='dfarm', action='store_true', default=False, help='Return DFA and Reward Machine')
-    parser.add_argument('-z', '--qrm', dest='qrm', action='store_true', default=False, help='Represent reward machine in the same format as "https://bitbucket.org/RToroIcarte/qrm/src/master/"')    
+    parser.add_argument('-R', '--qrm', dest='qrm', action='store_true', default=False, help='Return reward machine in the same format as "https://bitbucket.org/RToroIcarte/qrm/src/master/", cannot be used with DFA')
+    parser.add_argument('-D', '--dot', dest='dot', action='store_true', default=False, help='Return output as DOT file (Default)')
+    parser.add_argument('-H', '--hoa', dest='hoa', action='store_true', default=False, help='Return output as HOA file')
     parser.add_argument('-q', '--quiet', dest='quiet', action='store_true', default=False, help='Do not print anything on screen (except errors)')
     parser.add_argument('-r', '--reduce', dest='reduce', action='store_true', default=False, help='Reduce Reward Machine or DFAs to accepting paths. If used with "-b" only reward machine will be reduced.')
     parser.add_argument('-i', '--image', dest='image', action='store_true', default=False, help='Also save image of Reward Machine')
@@ -51,10 +59,7 @@ if __name__ == '__main__':
     quiet = args.quiet
     #  cant selct more than one language
     if [args.all, args.ltlf, args.pltl, args.golog, args.ldlf, args.tla].count(True) != 1:
-        ll = 'You have to select only one language. No more no less.'
-        print(f"ERROR:\n{'-'*len(ll)}\n{ll}\n{'-'*len(ll)}")
-        parser.print_help()
-        exit()
+        send_error('You have to select only one language.')
 
     #  choose the output
     if [args.dfa, args.rm, args.dfarm].count(True) > 1:
@@ -77,6 +82,20 @@ if __name__ == '__main__':
 
     reward = not args.noreward
 
+    # select output
+    if [args.dot, args.qrm, args.hoa].count(True) != 1:
+        send_error('You can only choose one output format.')
+
+
+    if args.dot:
+        output = 'dot'
+    elif args.qrm:
+        output = 'qrm'
+    elif args.hoa:
+        output = 'hoa'
+    else:
+        output = 'dot'
+
     #  select lenguage
     if args.ltlf:
         extention = 'ltlf'
@@ -86,6 +105,7 @@ if __name__ == '__main__':
     elif args.pltl:
         extention = 'pltl'
         sys.path.insert(1, './PLTL')
+
         if not quiet:
             print('PLTL option requested')
     elif args.ldlf:
@@ -133,8 +153,7 @@ if __name__ == '__main__':
             try:
                 f, r = read_formula(file)
             except FileNotFoundError:
-                print(f'The file {file} is not in the directory')
-                exit()
+                send_error(f'The file {file} is not in the directory', False)
 
             formulas += f
             rewards += r
@@ -156,36 +175,62 @@ if __name__ == '__main__':
         try:
             f = translator.read_dfa('dfa.txt')
         except:
-            print('Problem with mona, please check your formulas')
-            exit()
+            send_error('Problem with mona, please check your formulas', False)
+
         dfas.append(f)
 
     # return
     if dfa and rm:
         dfas = get_dfas(dfas, r, reward = True, minimize = False)
         for i in range(len(dfas)):
-            AutIO.dfa_to_dot(dfas[i], f'SuperDFA_{i}')
-            if not args.image:
-                os.system(f'rm SuperDFA_{i}.dot.svg')
+            if output == 'dot' or args.image:
+                AutIO.dfa_to_dot(dfas[i], f'DFA_{i}')
+                if not args.image:
+                    os.system(f'rm DFA_{i}.dot.svg')
+                else:
+                    os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
+            if output != 'dot':
+                write_output(output, dfas[i], f'DFA_{i}')
+
 
         reward_machine = dfa_intersection_to_rm(dfas, args.reduce)
-        AutIO.dfa_to_dot(reward_machine, 'RewardMachine') 
-        if not args.image:
-            os.system('rm RewardMachine.dot.svg')
+        if output == 'dot' or args.image:
+            AutIO.dfa_to_dot(reward_machine, 'RewardMachine')
+            if not args.image:
+                os.system('rm RewardMachine.dot.svg')
+            else:
+                os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
+        if output != 'dot':
+            write_output(output, reward_machine, 'RewardMachine')
+
 
     elif dfa:
         dfas = get_dfas(dfas, r, reward, args.reduce)
         for i in range(len(dfas)):
-            AutIO.dfa_to_dot(dfas[i], f'SuperDFA_{i}')
-            if not args.image:
-                os.system(f'rm SuperDFA_{i}.dot.svg')
+            if output == 'dot' or args.image:
+                AutIO.dfa_to_dot(dfas[i], f'DFA_{i}')
+                if not args.image:
+                    os.system(f'rm DFA_{i}.dot.svg')
+                else:
+                    os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
+            if output != 'dot':
+                write_output(output, dfas[i], f'DFA_{i}')
+
 
     elif rm:
         #  mix dfas and create the reward machine
         reward_machine = automatas_to_rm(dfas, rewards, args.reduce)
-        AutIO.dfa_to_dot(reward_machine, 'RewardMachine') 
-        if not args.image:
-            os.system('rm RewardMachine.dot.svg')
+        if output == 'dot' or args.image:
+            AutIO.dfa_to_dot(reward_machine, 'RewardMachine')
+            if not args.image:
+                os.system('rm RewardMachine.dot.svg')
+            else:
+                os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
+        if output != 'dot':
+            write_output(output, reward_machine, 'RewardMachine')
+
 
     os.system('rm dfa.txt')
     os.system('rm formula.mona')
+
+
