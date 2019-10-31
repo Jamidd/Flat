@@ -1,9 +1,7 @@
 from collections import defaultdict
-from functools import reduce
 from dd.autoref import BDD
 import itertools
 from PySimpleAutomata import DFA
-from PySimpleAutomata import automata_IO as AutIO
 
 
 def read_formula(file):
@@ -93,11 +91,12 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
                     result["accepting_states"].add(dest)
                 result["states"].add(osrc)
                 result["states"].add(dest)
-                result["reward"][dest] = reward
-                result["transitions"][(osrc, bdd_to_formula(bdd, cond))] = dest
+                # result["reward"][dest] = reward  // This is if you want the reward at the node instead of the edge
+                result["transitions"][(osrc, bdd_to_formula(bdd, cond))] = (dest, reward) if reward > 0 else (dest, )
     if minimize:
         result = DFA.dfa_co_reachable(result)
     # rename with actual reward
+
     rm = {
         'alphabet': set(),
         'states': set(),
@@ -107,12 +106,13 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
     }
 
     rm["alphabet"] = result["alphabet"]
-
     new_states = dict()
-    for k in result["reward"]:
-        new_states[k] = f"""{k}\n{"{"}{result["reward"][k]}{"}"}"""
-        rm["states"].add(new_states[k])
 
+    """ // This is if you want the reward at the node instead of the edge
+    for k in result["reward"]:
+        new_states[k] = f'''{k} \n{"{"}{result["reward"][k]}{"}"}'''
+        rm["states"].add(new_states[k])
+    """
     if result["initial_state"] not in new_states:
         new_states[result["initial_state"]] = f"""{result["initial_state"]}\n{"{"}0{"}"}"""
 

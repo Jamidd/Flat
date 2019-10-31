@@ -5,9 +5,9 @@ from Lexer import MyLexer
 class MyParser(object):
 
     precedence = (
-        ('left', 'AND', 'OR', 'IMPLIES', 'DIMPLIES', 'SINCE'),
-        ('right', 'YESTERDAY', 'ONCE', 'HISTORICALLY'),
-        ('right', 'NOT'),
+        ('left', 'AND', 'WAND', 'OR', 'WOR', 'IMPLIES', 'DIMPLIES', 'SINCE', 'USINCE', 'LSINCE'),
+        ('right', 'YESTERDAY', 'ONCE', 'HISTORICALLY', 'UYESTERDAY', 'UONCE', 'UHISTORICALLY', 'LYESTERDAY', 'LONCE', 'LHISTORICALLY'),
+        ('right', 'NOT', 'WNOT'),
         ('nonassoc', 'LPAR', 'RPAR')
     )
 
@@ -16,6 +16,27 @@ class MyParser(object):
         self.lexer.build()
         self.tokens = self.lexer.tokens
         self.parser = yacc.yacc(module=self)
+        self.change = {
+                    'and': '&',
+                    'or': '|',
+                    'not': '~',
+                    '&': '&',
+                    '|': '|',
+                    '~': '~',
+                    '->': '->',
+                    '<->': '<->',
+                    'Y': 'Y',
+                    'O': 'O',
+                    'S': 'S',
+                    'H': 'H',
+                    'YESTERDAY': 'Y',
+                    'ONCE': 'O',
+                    'SINCE': 'S',
+                    'HISTORICALLY': 'H',
+                    'yesterday': 'Y',
+                    'once': 'O',
+                    'since': 'S',
+                    'historically': 'H'}
 
     def __call__(self, s, **kwargs):
         return self.parser.parse(s, lexer=self.lexer.lexer)
@@ -23,14 +44,25 @@ class MyParser(object):
     def p_formula(self, p):
         '''
         formula : formula AND formula
+                | formula WAND formula
                 | formula OR formula
+                | formula WOR formula
                 | formula IMPLIES formula
                 | formula DIMPLIES formula
                 | formula SINCE formula
+                | formula LSINCE formula
+                | formula USINCE formula
                 | YESTERDAY formula
+                | LYESTERDAY formula
+                | UYESTERDAY formula
                 | ONCE formula
+                | LONCE formula
+                | UONCE formula
                 | HISTORICALLY formula
+                | LHISTORICALLY formula
+                | UHISTORICALLY formula
                 | NOT formula
+                | WNOT formula
                 | TRUE
                 | FALSE
                 | TERM

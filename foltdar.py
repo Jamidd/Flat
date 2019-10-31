@@ -1,12 +1,12 @@
 import os
 import sys
+import apt
 import re
 
 sys.path.insert(1, './DFA2RM')
 
 #  import and check all dependencies have been meet
 try:
-    import apt
     import dd
     import ply
     import argparse
@@ -18,7 +18,6 @@ except ModuleNotFoundError:
     if input("Do you want me to run it for you (y/n)").lower() in ["y", "yes"]:
         os.system("sh DFA2RM/dependencies.sh")
         print('-'*25)
-        import apt
         import dd
         import ply
         import argparse
@@ -151,7 +150,7 @@ if __name__ == '__main__':
     #  create required DFAs
     dfas = []
     for f in formulas:
-        # revisar
+        # TODO revisar
         translator.pass_trough_mona(f, quiet)
 
         try:
@@ -170,9 +169,9 @@ if __name__ == '__main__':
                 os.system(f'rm SuperDFA_{i}.dot.svg')
 
         reward_machine = dfa_intersection_to_rm(dfas, args.reduce)
-        AutIO.dfa_to_dot(reward_machine, 'SuperRewardMachine') 
+        AutIO.dfa_to_dot(reward_machine, 'RewardMachine') 
         if not args.image:
-            os.system('rm SuperRewardMachine.dot.svg')
+            os.system('rm RewardMachine.dot.svg')
 
     elif dfa:
         dfas = get_dfas(dfas, r, reward, args.reduce)
@@ -184,9 +183,9 @@ if __name__ == '__main__':
     elif rm:
         #  mix dfas and create the reward machine
         reward_machine = automatas_to_rm(dfas, rewards, args.reduce)
-        AutIO.dfa_to_dot(reward_machine, 'SuperRewardMachine') 
+        AutIO.dfa_to_dot(reward_machine, 'RewardMachine') 
         if not args.image:
-            os.system('rm SuperRewardMachine.dot.svg')
+            os.system('rm RewardMachine.dot.svg')
 
     os.system('rm dfa.txt')
     os.system('rm formula.mona')
