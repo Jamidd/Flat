@@ -1,0 +1,24 @@
+digraph {
+	fake [style=invisible]
+	S5
+	S4
+	S2
+	S1
+	S3
+	S0 [root=true]
+	fake -> S0 [style=bold]
+	S0 -> S1 [label=""]
+	S1 -> S2 [label="!B&!A&!C"]
+	S1 -> S1 [label="!B&A&!C"]
+	S1 -> S2 [label="!B&!A&C"]
+	S1 -> S3 [label="!B&A&C"]
+	S1 -> S4 [label="B&!C"]
+	S1 -> S5 [label="('B&C', 2)"]
+	S5 -> S5 [label="('', 2)"]
+	S4 -> S4 [label="!C"]
+	S4 -> S5 [label="('C', 2)"]
+	S3 -> S2 [label="!B&!A"]
+	S3 -> S3 [label="!B&A"]
+	S3 -> S5 [label="('B', 2)"]
+	S2 -> S2 [label=""]
+}

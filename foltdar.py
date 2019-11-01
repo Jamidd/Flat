@@ -11,10 +11,10 @@ try:
     import ply
     import argparse
     from PySimpleAutomata import automata_IO as AutIO
-    if apt.Cache()['mona'].is_installed != True:
+    if not apt.Cache()['mona'].is_installed:
         raise ModuleNotFoundError
 except ModuleNotFoundError:
-    print("Dependencies have not been met. Please run 'sh dependecies.sh' on the terminal")
+    print("Dependencies have not been met. Please run 'sh dependencies.sh' on the terminal")
     if input("Do you want me to run it for you (y/n)").lower() in ["y", "yes"]:
         os.system("sh DFA2RM/dependencies.sh")
         print('-'*25)
@@ -29,13 +29,13 @@ from dfa2rm import automatas_to_rm, get_dfas, dfa_intersection_to_rm, read_formu
 
 
 if __name__ == '__main__':
-    def send_error(text, help = True):
+    def send_error(text, help=True):
         print(f"ERROR:\n{'-' * len(text)}\n{text}\n{'-' * len(text)}")
         if help:
             parser.print_help()
         exit()
     #  parse input
-    parser = argparse.ArgumentParser(description='Translate Formal Lenguages to DFA or Reward Machines.')
+    parser = argparse.ArgumentParser(description='Translate Formal Languages to DFA or Reward Machines.')
     parser.add_argument('-a', '--all', dest='all', action='store_true', default=False, help='Translate from all types of formulas (special restrictions added)')
     parser.add_argument('-l', '--ltlf', dest='ltlf', action='store_true', default=False, help='Translate LTLf formulas')
     parser.add_argument('-p', '--pltl', dest='pltl', action='store_true', default=False, help='Translate PLTL formulas')
@@ -53,11 +53,11 @@ if __name__ == '__main__':
     parser.add_argument('-r', '--reduce', dest='reduce', action='store_true', default=False, help='Reduce Reward Machine or DFAs to accepting paths. If used with "-b" only reward machine will be reduced.')
     parser.add_argument('-i', '--image', dest='image', action='store_true', default=False, help='Also save image of Reward Machine')
     parser.add_argument('-n', '--noreward', dest='noreward', action='store_true', default=False, help='Do not consider reward. Can only be used with "-c". Reward still has to be added, but just set it to 0')
-    parser.add_argument('-f', '--files', dest='files', default=[], nargs='+', type=str, help='Specify files to be taken into consideration, else all files with extention *.{language} in the directory will be selected.')
+    parser.add_argument('-f', '--files', dest='files', default=[], nargs='+', type=str, help='Specify files to be taken into consideration, else all files with extension *.{language} in the directory will be selected.')
 
     args = parser.parse_args()
     quiet = args.quiet
-    #  cant selct more than one language
+    #  cant select more than one language
     if [args.all, args.ltlf, args.pltl, args.golog, args.ldlf, args.tla].count(True) != 1:
         send_error('You have to select only one language.')
 
@@ -83,10 +83,6 @@ if __name__ == '__main__':
     reward = not args.noreward
 
     # select output
-    if [args.dot, args.qrm, args.hoa].count(True) != 1:
-        send_error('You can only choose one output format.')
-
-
     if args.dot:
         output = 'dot'
     elif args.qrm:
@@ -96,38 +92,38 @@ if __name__ == '__main__':
     else:
         output = 'dot'
 
-    #  select lenguage
+    #  select language
     if args.ltlf:
-        extention = 'ltlf'
+        extension = 'ltlf'
         sys.path.insert(1, './LTLf')
         if not quiet:
             print('LTLf option requested')
     elif args.pltl:
-        extention = 'pltl'
+        extension = 'pltl'
         sys.path.insert(1, './PLTL')
 
         if not quiet:
             print('PLTL option requested')
     elif args.ldlf:
-        # extention = 'ldlf'
+        # extension = 'ldlf'
         # sys.path.insert(1, './LDLf')
         # if not silence: print('LDLf option requested')
         print('Sorry, I have been to lazy to implement this yet. Good luck :-)')
         exit()
-    elif oargs.golog:
-        # extention = 'golog'
+    elif args.golog:
+        # extension = 'golog'
         # sys.path.insert(1, './GOLOG')
         # if not silence: print('GOLOG option requested')
         print('Sorry, I have been to lazy to implement this yet. Good luck :-)')
         exit()
     elif args.tla:
-        # extention = 'tla'
+        # extension = 'tla'
         # sys.path.insert(1, './TLA')
         # if not silence: print('TLA+ option requested')
         print('Sorry, I have been to lazy to implement this yet. Good luck :-)')
         exit()
     elif args.re:
-        # extention = 're'
+        # extension = 're'
         # sys.path.insert(1, './RE')
         # if not silence: print('RE option requested')
         print('Sorry, I have been to lazy to implement this yet. Good luck :-)')
@@ -147,9 +143,9 @@ if __name__ == '__main__':
     if len(args.files) > 0:
 
         for file in args.files:
-            #  add extention if it doesnt exist. If another extention is added, this will rule it out
-            if re.match(f'[a-zA-Z1-9]+.{extention}', file) is None:
-                file = file + extention
+            #  add extension if it doesnt exist. If another extension is added, this will rule it out
+            if re.match(f'[a-zA-Z1-9]+.{extension}', file) is None:
+                file = file + extension
             try:
                 f, r = read_formula(file)
             except FileNotFoundError:
@@ -161,7 +157,7 @@ if __name__ == '__main__':
     #  look for all the files
     else:
         for file in os.listdir():
-            if re.match(f'[a-zA-Z1-9]+.{extention}', file) is not None:
+            if re.match(f'[a-zA-Z1-9]+.{extension}', file) is not None:
                 f, r = read_formula(file)
                 formulas += f
                 rewards += r
@@ -181,7 +177,7 @@ if __name__ == '__main__':
 
     # return
     if dfa and rm:
-        dfas = get_dfas(dfas, r, reward = True, minimize = False)
+        dfas = get_dfas(dfas, r, reward=True, minimize=False)
         for i in range(len(dfas)):
             if output == 'dot' or args.image:
                 AutIO.dfa_to_dot(dfas[i], f'DFA_{i}')
@@ -192,17 +188,15 @@ if __name__ == '__main__':
             if output != 'dot':
                 write_output(output, dfas[i], f'DFA_{i}')
 
-
         reward_machine = dfa_intersection_to_rm(dfas, args.reduce)
         if output == 'dot' or args.image:
             AutIO.dfa_to_dot(reward_machine, 'RewardMachine')
             if not args.image:
                 os.system('rm RewardMachine.dot.svg')
             else:
-                os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
+                os.system(f'mv RewardMachine.dot.svg RewardMachine.svg')
         if output != 'dot':
             write_output(output, reward_machine, 'RewardMachine')
-
 
     elif dfa:
         dfas = get_dfas(dfas, r, reward, args.reduce)
@@ -216,7 +210,6 @@ if __name__ == '__main__':
             if output != 'dot':
                 write_output(output, dfas[i], f'DFA_{i}')
 
-
     elif rm:
         #  mix dfas and create the reward machine
         reward_machine = automatas_to_rm(dfas, rewards, args.reduce)
@@ -225,12 +218,10 @@ if __name__ == '__main__':
             if not args.image:
                 os.system('rm RewardMachine.dot.svg')
             else:
-                os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
+                os.system(f'mv RewardMachine.dot.svg RewardMachine.svg')
         if output != 'dot':
             write_output(output, reward_machine, 'RewardMachine')
 
-
     os.system('rm dfa.txt')
     os.system('rm formula.mona')
-
 

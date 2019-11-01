@@ -147,9 +147,63 @@ def automatas_to_rm(automata, rewards, minimize=False):
     automata = get_dfas(automata, rewards, reward=True, minimize=False)
     return dfa_intersection_to_rm(automata, minimize)
 
+def add_a(formula):
+    reserved = set(['&', '|', '~', '!', '-', '<', '>'])
+    cont = False
+    ret = ''
+    for l in formula:
+        if l in reserved:
+            cont = False
+        elif not cont:
+            ret += '@'
+            cont = True
+        ret += l
+    return ret
+
 
 def write_hoa(dfa, name):
-    pass
+    transByState = defaultdict(list)
+    for trans in dfa['transitions']:
+        transByState[trans[0]].append((trans[1], dfa['transitions'][trans]))
+    hoa = ''
+    hoa += 'HOA: v1\n'
+    #hoa += 'name: '
+    hoa += f'States: {len(dfa["states"])}\n'
+    hoa += f'Start: {dfa["initial_state"].replace("S", "")}\n'
+    hoa += f'''AP: {len(dfa["alphabet"])} "{'" "'.join(dfa["alphabet"])}"\n'''
+    for i, leter in  enumerate(dfa["alphabet"]):
+        hoa += f'Alias: @{leter} {i}\n'
+    hoa += f'Acceptance: {len(dfa["states"])} t\n'
+    hoa += 'acc-name: all\n'
+    hoa += 'tool: "FOLTDAR"\n'
+    hoa += 'properties: trans-labels explicit-labels trans-acc deterministic\n'
+    hoa += '--BODY--\n'
+    for state in transByState:
+        hoa += f'State: {state.replace("S", "")}\n'
+        for lbl, nextS in transByState[state]:
+            reward = False
+            try:
+                lbl, reward = eval(lbl)
+            except SyntaxError:
+                reward = False
+            if lbl == '':
+                hoa += '[t] '
+            else:
+                hoa += f'[{add_a(lbl)}] '
+            hoa += f'{nextS.replace("S", "")}'
+            if reward:
+                hoa += f' {"{"}{reward}{"}"}'
+            hoa += '\n'
+        hoa += '\n'
+    hoa += ''
+    hoa += ''
+    hoa += ''
+    hoa += ''
+    hoa += ''
+    hoa += '--END--\n'
+
+    with open(f'{name}.hoa', 'w') as file:
+        file.write(hoa)
 
 def write_qrm(dfa, name):
     qrm = ''
@@ -164,6 +218,7 @@ def write_qrm(dfa, name):
             reward = 0
         lbl = lbl if lbl != '' else 'True'
         qrm += f'''({ini}, {end}, '{lbl}', ConstantRewardFunction({reward}))\n'''
+
     with open(f'{name}.txt', 'w') as file:
         file.write(qrm)
 
