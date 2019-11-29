@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ff2316a-ebd5-4046-942f-22f183e4ed29" name="Default Changelist" comment="" />
+    <list default="true" id="8ff2316a-ebd5-4046-942f-22f183e4ed29" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DFA_0.dot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DFA2RM/dfa2rm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DFA2RM/dfa2rm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PLTL/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/PLTL/Parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RewardMachine.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RewardMachine.hoa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RewardMachine.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foltdar.py" beforeDir="false" afterPath="$PROJECT_DIR$/foltdar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inicio.ltlf" beforeDir="false" afterPath="$PROJECT_DIR$/inicio.ltlf" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

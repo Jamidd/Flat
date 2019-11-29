@@ -2,15 +2,23 @@ from collections import defaultdict
 from dd.autoref import BDD
 import itertools
 from PySimpleAutomata import DFA
-
+from copy import  deepcopy
 
 def read_formula(file):
     f = []
     r = []
     with open(file, "r") as file:
-        for _ in range(int(file.readline())):
-            f.append(file.readline().strip())
-            r.append(int(file.readline().strip()))
+        for _ in range(int(file.readline().strip())):
+            line = file.readline().strip()
+            while line[0] == '#':
+                line = file.readline().strip()
+            line += '#'
+            f.append(line[:line.index('#')])
+            line = file.readline().strip()
+            while line[0] == '#':
+                line = file.readline().strip()
+            line += '#'
+            r.append(int(line[:line.index('#')]))
     return f, r
 
 
@@ -48,7 +56,7 @@ def bdd_to_formula(bdd, bd):
     return "&".join([f"{simbol[str(bd[k])]}{k}" for k in bd])#.lower()
 
 
-def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https://spot.lrde.epita.fr/ipynb/product.html
+def dfa_intersection_to_rm(automata, reduce=False, set_reward=True):  # from alberto and https://spot.lrde.epita.fr/ipynb/product.html
     # TODO consolidar caminos equivalentes
     result = {
         'alphabet': set().union(*[x["alphabet"] for x in automata]),
@@ -58,10 +66,8 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
         'transitions': dict(),
         'reward': defaultdict(int)
     }
-
     sdict = {}
     todo = []
-
     new_state = get_new_state()
 
     def dst(state_numbers):
@@ -77,6 +83,7 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
     bdd = BDD()
     bdd.declare(*result["alphabet"])
 
+    maxima = 0
     while todo:
         tuple_rc, osrc = todo.pop()
         lists_of_transitions = [automata[i]['out'][tuple_rc[i]] for i in range(len(automata))]
@@ -88,14 +95,29 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
             if bdd.to_expr(cond) != "FALSE":
                 reward = sum([automata[i]["reward"][elements[i][0]] for i in range(len(elements)) if elements[i][0] in automata[i]['reward']])
                 dest = dst([e[0] for e in elements])
-                if reward > 0:
+                # TODO: check rm reduce if we want full reduce or to every subgoal
+                #if reward > 0:
+                #    result["accepting_states"].add(dest)
+                if reward > maxima:
+                    result["accepting_states"] = set([dest])
+                    maxima = reward
+                elif reward == maxima:
                     result["accepting_states"].add(dest)
+
                 result["states"].add(osrc)
                 result["states"].add(dest)
                 # result["reward"][dest] = reward  // This is if you want the reward at the node instead of the edge
+                if not set_reward:
+                    reward = 0
                 result["transitions"][(osrc, bdd_to_formula(bdd, cond))] = (dest, reward) # dest // This is if you want the reward at the node instead of the edge
-    if minimize:
+
+    if reduce:
+        full_transitions = deepcopy(result['transitions'])
+        for k in result['transitions']:
+            result['transitions'][k] = result['transitions'][k][0] # only the next state
         result = DFA.dfa_co_reachable(result)
+        for k in result['transitions']:
+            result['transitions'][k] = full_transitions[k]  # return the state and reward
     # rename with actual reward
 
     rm = {
@@ -116,7 +138,7 @@ def dfa_intersection_to_rm(automata, minimize=False):  # from alberto and https:
     if result["initial_state"] not in new_states:
         new_states[result["initial_state"]] = f"""{result["initial_state"]}\n{"{"}0{"}"}"""
 
-    rm["initial_state"] = new_states[result["initial_state"]]  
+    rm["initial_state"] = new_states[result["initial_state"]]
 
     new_transitions = dict()
     for ini in result["transitions"]:
@@ -136,16 +158,15 @@ def get_dfas(automata, rewards, reward=False, minimize=False):
         automata = [set_in_out(add_reward(automata[i], rewards[i])) for i in range(len(automata))]
     else:
         automata = [set_in_out(aut) for aut in automata]
-
     if minimize:
         automata = [DFA.dfa_co_reachable(aut) for aut in automata]
-
     return automata
 
 
-def automatas_to_rm(automata, rewards, minimize=False):
-    automata = get_dfas(automata, rewards, reward=True, minimize=False)
-    return dfa_intersection_to_rm(automata, minimize)
+def automatas_to_rm(automata, rewards, minimize=False, reward = True):
+    automatas = get_dfas(automata, rewards, reward=True, minimize = False)
+    return dfa_intersection_to_rm(automatas, minimize, reward)
+
 
 def add_a(formula):
     reserved = set(['&', '|', '~', '!', '-', '<', '>'])
@@ -184,7 +205,7 @@ def write_hoa(dfa, name):
             reward = False
             try:
                 lbl, reward = eval(lbl)
-            except SyntaxError:
+            except (SyntaxError, NameError):
                 reward = False
             if lbl == '':
                 hoa += '[t] '
@@ -195,15 +216,11 @@ def write_hoa(dfa, name):
                 hoa += f' {"{"}{reward}{"}"}'
             hoa += '\n'
         hoa += '\n'
-    hoa += ''
-    hoa += ''
-    hoa += ''
-    hoa += ''
-    hoa += ''
     hoa += '--END--\n'
 
     with open(f'{name}.hoa', 'w') as file:
         file.write(hoa)
+
 
 def write_qrm(dfa, name):
     qrm = ''
@@ -213,7 +230,7 @@ def write_qrm(dfa, name):
         end = int(dfa['transitions'][tra].replace('S', ''))
         try:
             lbl, reward = eval(tra[1])
-        except SyntaxError:
+        except (SyntaxError, NameError):
             lbl = tra[1]
             reward = 0
         lbl = lbl if lbl != '' else 'True'

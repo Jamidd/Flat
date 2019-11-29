@@ -50,10 +50,12 @@ if __name__ == '__main__':
     parser.add_argument('-D', '--dot', dest='dot', action='store_true', default=False, help='Return output as DOT file (Default)')
     parser.add_argument('-H', '--hoa', dest='hoa', action='store_true', default=False, help='Return output as HOA file')
     parser.add_argument('-q', '--quiet', dest='quiet', action='store_true', default=False, help='Do not print anything on screen (except errors)')
-    parser.add_argument('-r', '--reduce', dest='reduce', action='store_true', default=False, help='Reduce Reward Machine or DFAs to accepting paths. If used with "-b" only reward machine will be reduced.')
+    parser.add_argument('-r', '--reduce', dest='reduce', action='store_true', default=False, help='Reduce Reward Machine or DFAs to accepting paths. If used with "-b" only reward machine will be reduced. Reward machine accepting states are the ones with highest reward.')
     parser.add_argument('-i', '--image', dest='image', action='store_true', default=False, help='Also save image of Reward Machine')
-    parser.add_argument('-n', '--noreward', dest='noreward', action='store_true', default=False, help='Do not consider reward. Can only be used with "-c". Reward still has to be added, but just set it to 0')
+    parser.add_argument('-n', '--dontshowreward', dest='noreward', action='store_true', default=False, help='Do not show reward. Can only be used with "-m". Reward has to always be added. If choosen in addition to "-r", the accepting states are still the ones with highest reward, even though they are later ignored.')
     parser.add_argument('-f', '--files', dest='files', default=[], nargs='+', type=str, help='Specify files to be taken into consideration, else all files with extension *.{language} in the directory will be selected.')
+
+    # noreward solo con rm
 
     args = parser.parse_args()
     quiet = args.quiet
@@ -82,6 +84,9 @@ if __name__ == '__main__':
 
     reward = not args.noreward
 
+    if reward and dfa:
+        print('Rewards are not shown in DFAs')
+
     # select output
     if args.dot:
         output = 'dot'
@@ -101,7 +106,6 @@ if __name__ == '__main__':
     elif args.pltl:
         extension = 'pltl'
         sys.path.insert(1, './PLTL')
-
         if not quiet:
             print('PLTL option requested')
     elif args.ldlf:
@@ -166,7 +170,10 @@ if __name__ == '__main__':
     dfas = []
     for f in formulas:
         # TODO revisar
-        translator.pass_trough_mona(f, quiet)
+        try:
+            translator.pass_trough_mona(f, quiet)
+        except ValueError:
+            send_error('Problem with the formulas', False)
 
         try:
             f = translator.read_dfa('dfa.txt')
@@ -177,7 +184,7 @@ if __name__ == '__main__':
 
     # return
     if dfa and rm:
-        dfas = get_dfas(dfas, r, reward=True, minimize=False)
+        dfas = get_dfas(dfas, rewards, reward=True, minimize=False)
         for i in range(len(dfas)):
             if output == 'dot' or args.image:
                 AutIO.dfa_to_dot(dfas[i], f'DFA_{i}')
@@ -186,9 +193,10 @@ if __name__ == '__main__':
                 else:
                     os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
             if output != 'dot':
+                os.system(f'rm DFA_{i}.dot')
                 write_output(output, dfas[i], f'DFA_{i}')
 
-        reward_machine = dfa_intersection_to_rm(dfas, args.reduce)
+        reward_machine = dfa_intersection_to_rm(dfas, args.reduce, reward)
         if output == 'dot' or args.image:
             AutIO.dfa_to_dot(reward_machine, 'RewardMachine')
             if not args.image:
@@ -196,10 +204,11 @@ if __name__ == '__main__':
             else:
                 os.system(f'mv RewardMachine.dot.svg RewardMachine.svg')
         if output != 'dot':
+            os.system('rm RewardMachine.dot')
             write_output(output, reward_machine, 'RewardMachine')
 
     elif dfa:
-        dfas = get_dfas(dfas, r, reward, args.reduce)
+        dfas = get_dfas(dfas, rewards, reward=False, minimize=args.reduce)
         for i in range(len(dfas)):
             if output == 'dot' or args.image:
                 AutIO.dfa_to_dot(dfas[i], f'DFA_{i}')
@@ -208,11 +217,12 @@ if __name__ == '__main__':
                 else:
                     os.system(f'mv DFA_{i}.dot.svg DFA_{i}.svg')
             if output != 'dot':
+                os.system(f'rm DFA_{i}.dot')
                 write_output(output, dfas[i], f'DFA_{i}')
 
     elif rm:
         #  mix dfas and create the reward machine
-        reward_machine = automatas_to_rm(dfas, rewards, args.reduce)
+        reward_machine = automatas_to_rm(dfas, rewards, args.reduce, reward)
         if output == 'dot' or args.image:
             AutIO.dfa_to_dot(reward_machine, 'RewardMachine')
             if not args.image:
@@ -220,6 +230,7 @@ if __name__ == '__main__':
             else:
                 os.system(f'mv RewardMachine.dot.svg RewardMachine.svg')
         if output != 'dot':
+            os.system('rm RewardMachine.dot')
             write_output(output, reward_machine, 'RewardMachine')
 
     os.system('rm dfa.txt')
