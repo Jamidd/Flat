@@ -2,3 +2,6 @@
 .vscode/
 *.out
 __pycache__/
+*.hoa
+*.svg
+*.txt
