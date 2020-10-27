@@ -154,9 +154,16 @@ if __name__ == '__main__':
     if len(args.files) > 0:
 
         for file in args.files:
+            f_path = file.split('/')
+            file = f_path[-1]
+            
             #  add extension if it doesnt exist. If another extension is added, this will rule it out
             if re.match(f'[a-zA-Z1-9]+.{extension}', file) is None:
                 file = file + extension
+            
+            f_path[-1] = file
+            file = '/'.join(f_path)
+
             try:
                 f, r = read_formula(file, extension)
             except FileNotFoundError:
