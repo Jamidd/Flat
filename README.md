@@ -9,4 +9,4 @@ It is also based on a few dependencies:
 [ply](https://pypi.org/project/ply/)  
 [PySimpleAutomata](https://pypi.org/project/PySimpleAutomata/)  
 
-On a linux based system, it will ask you to install all necesary dependencies automagically, the first time you run the program. You can review all the installed packages at [functions/dependencies.sh](https://github.com/Jamidd/Flat/blob/master/functions/dependencies.sh).
+On a linux based system, it will ask you to install all necesary dependencies automagically the first time you run the program. You can review all the installed packages at [functions/dependencies.sh](https://github.com/Jamidd/Flat/blob/master/functions/dependencies.sh).
