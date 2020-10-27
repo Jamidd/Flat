@@ -146,7 +146,7 @@ class Translator:
 
         return {"alphabet": set(variables), "states": states , "initial_state": initial_state, "accepting_states": acepting_states, "transitions": edges}
 
-    def pass_trough_mona(self, formula, quiet = False):
+    def translate(self, formula, file_name, quiet=False):
         parser = MyParser()
         parsed_formula = parser(formula)
         if not quiet:
@@ -158,9 +158,10 @@ class Translator:
                 file.write(formula)
         except IOError:
             print("IOError pass_trough_mona")
-            return
+            raise ValueError
         try:
-            os.system("mona -u -w -q formula.mona > dfa.txt")
+            os.system(f"mona -u -w -q formula.mona > {file_name}")
+            return self.read_dfa(file_name)
         except:
             print("Mona error")
-            return
+            raise ValueError

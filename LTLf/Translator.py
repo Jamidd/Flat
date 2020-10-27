@@ -4,7 +4,7 @@ import os
 
 class Translator:
     def __init__(self):
-        self.reserved = {"true", "false", "~", "&", "|", "X", "U"}
+        self.reserved = {"true", "false", "~", "&", "|", "X", "U", "G", "F"}
 
     def __call__(self, f):
         parser = MyParser()
@@ -27,7 +27,7 @@ class Translator:
 
     def alphabet_no_comma(self, formula):  # returns a string listing all the terms in the formula
         res = ""
-        P = list(self.get_alphabet(formula))
+        P = sorted(list(self.get_alphabet(formula)))
         if len(P) != 0:
             it = P[0]
             res += it.upper()
@@ -37,7 +37,6 @@ class Translator:
 
     def trans_fol(self, formula):  # returns the string ready to be passed to MONA
         res = ""
-
         P = self.alphabet_no_comma(formula)
         res = "m2l-str;\n"
         if len(P) > 0:
@@ -49,11 +48,12 @@ class Translator:
         if len(formula) == 0:
             return ""
         res = ""
+
         if formula[0] == "~":
             res = "~("
             res += self.sub_trans_fol(formula[1], t)
             res += ")"
-        
+
         elif formula[0] == "X":
             exs = "x" + str(t + 1)
             if (t == 0):
@@ -63,7 +63,27 @@ class Translator:
             res = "(ex1 " + exs + ": " + exs + "=" + ts + "+1 & ("
             res += self.sub_trans_fol(formula[1], t + 1)
             res += "))"
-        
+
+        elif formula[0] == "F":
+            exs = "x" + str(t + 1)
+            if (t == 0):
+                ts = str(t)
+            else:
+                ts = "x" + str(t)
+            res = "(ex1 " + exs + ": (" + ts + " <= " + exs + " & ("
+            res += self.sub_trans_fol(formula[1], t + 1)
+            res += ")))"
+
+        elif formula[0] == "G":
+            alls = "x" + str(t + 1)
+            if (t == 0):
+                ts = str(t)
+            else:
+                ts = "x" + str(t)
+            res = "(all1 " + alls + ": ((" + ts + " <= " + alls + ") => ("
+            res += self.sub_trans_fol(formula[1], t + 1)
+            res += ")))"
+
         elif formula[0] == "U":
             exs = "x" + str(t + 1)
             alls = "x" + str(t + 2)
@@ -77,6 +97,7 @@ class Translator:
             res += " < " + exs + " => ("
             res += self.sub_trans_fol(formula[1], t + 2)
             res += ")))))"
+
         elif formula[0] == "|":
             res += "(("
             res += self.sub_trans_fol(formula[1], t)
@@ -85,15 +106,18 @@ class Translator:
             res += "))"
 
         elif formula[0] == "&":
-            res += "((" 
+            res += "(("
             res += self.sub_trans_fol(formula[1], t)
             res += ") & ("
             res += self.sub_trans_fol(formula[2], t)
             res += "))"
+
         elif formula == "true":
             res += "(true)"
+
         elif formula == "false":
             res += "(false)"
+
         else:
             if (t == 0):
                 ts = "(" + str(t)
@@ -112,6 +136,7 @@ class Translator:
                 return f"{av[1]}"
             elif av[0] == "0":
                 return f"!{av[1]}"
+
         s1 = t[:t.index(': ')].replace('State ', 'S')
         s2 = t[t.index(' -> ') + 4:].replace('state ', 'S')
         lista = list(filter(lambda x: x != "", map(get_label, zip(list(t[t.index(': ') + 2: t.index(' -> ')]), v))))
@@ -139,9 +164,10 @@ class Translator:
             states.add(s2)
             edges[(s1, "&".join(label).lower())] = s2
 
-        return {"alphabet": set(variables), "states": states, "initial_state": initial_state, "accepting_states": acepting_states, "transitions": edges}
+        return {"alphabet": set(variables), "states": states, "initial_state": initial_state,
+                "accepting_states": acepting_states, "transitions": edges}
 
-    def pass_trough_mona(self, formula, quiet=False):
+    def translate(self, formula, file_name, quiet=False):
         parser = MyParser()
         parsed_formula = parser(formula)
         if not quiet:
@@ -153,9 +179,12 @@ class Translator:
                 file.write(formula)
         except IOError:
             print("IOError pass_trough_mona")
-            return
+            raise ValueError
+
         try:
-            os.system("mona -u -w -q formula.mona > dfa.txt")
+            os.system(f"mona -u -w -q formula.mona > {file_name}")
+            return self.read_dfa(file_name)
+            # os.system("cat dfa.txt")
         except:
             print("Mona error")
-            return
+            raise ValueError

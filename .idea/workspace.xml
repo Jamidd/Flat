@@ -2,22 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff2316a-ebd5-4046-942f-22f183e4ed29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DFA_0.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compare.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DFA2RM/Parse_BDD.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LTLf/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PDDL3/Lexer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PDDL3/Parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PDDL3/Prueba.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PDDL3/Translator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PDDL3/dfa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PDDL3/parser.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PDDL3/parsetab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RE/parser.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RewardMachine.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RewardMachine.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dfa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/formula.mona" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text1.ltlf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DFA2RM/dfa2rm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DFA2RM/dfa2rm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PLTL/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/PLTL/Parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RewardMachine.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RewardMachine.hoa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RewardMachine.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DFA_0.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LTLf/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTLf/Parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LTLf/Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTLf/Translator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foltdar.py" beforeDir="false" afterPath="$PROJECT_DIR$/foltdar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inicio.ltlf" beforeDir="false" afterPath="$PROJECT_DIR$/inicio.ltlf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rmRodrigo.txt" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,25 +44,46 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PDDL3/Prueba.py" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PDDL3" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="foltdar" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.foltdar">
+    <configuration name="Prueba" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="FOLTDAR" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PDDL3" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RE/Prueba.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="foltdar" type="PythonConfigurationType" factoryName="Python">
       <module name="FOLTDAR" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -57,7 +96,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/foltdar.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="-qlmRirf text1.ltlf" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -65,11 +104,22 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
+    <list>
+      <item itemvalue="Python.Prueba" />
+      <item itemvalue="Python.foltdar" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <item itemvalue="Python.foltdar" />
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
-    </recent_temporary>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -99,5 +149,99 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580233668318">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="451" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580233668318" />
+    <state x="693" y="358" width="590" height="397" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580157677577">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="693" y="358" width="590" height="397" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1580157677577" />
+    <state x="510" y="145" width="474" height="605" key="#xdebugger.evaluate" timestamp="1580158237170">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="510" y="145" width="474" height="605" key="#xdebugger.evaluate/67.27.1853.1053@67.27.1853.1053" timestamp="1580158237170" />
+    <state x="600" y="150" width="777" height="814" key="CommitChangelistDialog2" timestamp="1579046887958">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="600" y="150" width="777" height="814" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1579046887958" />
+    <state x="776" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1576281955109">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="311" width="424" height="491" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1576281955109" />
+    <state width="542" height="618" key="GridCell.Tab.0.bottom" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state width="542" height="618" key="GridCell.Tab.0.center" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state width="542" height="618" key="GridCell.Tab.0.left" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state width="542" height="618" key="GridCell.Tab.0.right" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state width="542" height="618" key="GridCell.Tab.1.bottom" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state width="542" height="618" key="GridCell.Tab.1.center" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state width="542" height="618" key="GridCell.Tab.1.left" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state width="542" height="618" key="GridCell.Tab.1.right" timestamp="1580251954548">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="542" height="618" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1580251954548" />
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1576264044883">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1576264044883" />
+    <state width="926" height="526" key="XDebugger.FullValuePopup" timestamp="1579119261559">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="926" height="526" key="XDebugger.FullValuePopup/67.27.1853.1053@67.27.1853.1053" timestamp="1579119261559" />
+    <state x="649" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1580935292912">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="649" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580935292912" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/.local/lib/python3.6/site-packages/ply/yacc.py</url>
+          <line>328</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/.local/lib/python3.6/site-packages/ply/yacc.py</url>
+          <line>602</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/.local/lib/python3.6/site-packages/ply/yacc.py</url>
+          <line>425</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

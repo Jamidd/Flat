@@ -1,0 +1,2862 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    EXISTS
+
+Grammar
+
+Rule 0     S' -> formula
+Rule 1     formula -> AND list_f
+Rule 2     formula -> ATEND formula
+Rule 3     formula -> ALWAYS formula
+Rule 4     formula -> SOMETIME formula
+Rule 5     formula -> WITHIN NUM formula
+Rule 6     formula -> ATMOSTONCE formula
+Rule 7     formula -> SOMETIMEAFTER formula formula
+Rule 8     formula -> SOMETIMEBEFORE formula formula
+Rule 9     formula -> ALWAYSWITHIN NUM formula formula
+Rule 10    formula -> IMPLIES formula formula
+Rule 11    formula -> NOT formula
+Rule 12    formula -> HOLDDURING NUM NUM formula
+Rule 13    formula -> HOLDAFTER NUM formula
+Rule 14    formula -> FORALL list_v formula
+Rule 15    formula -> formula TERM
+Rule 16    formula -> vars
+Rule 17    formula -> list_p
+Rule 18    param -> TERM
+Rule 19    param -> NUM
+Rule 20    param -> VAR TERM
+Rule 21    list_p -> param
+Rule 22    list_p -> param param
+Rule 23    list_p -> list_p param
+Rule 24    list_p -> list_p formula
+Rule 25    vars -> VAR TERM TYP TERM
+Rule 26    list_v -> vars
+Rule 27    list_v -> vars vars
+Rule 28    list_v -> list_v vars
+Rule 29    list_v -> LPAR list_v RPAR
+Rule 30    list_f -> formula
+Rule 31    list_f -> formula formula
+Rule 32    list_f -> list_f formula
+Rule 33    formula -> LPAR formula RPAR
+Rule 34    formula -> LPAR list_p RPAR
+
+Terminals, with rules where they appear
+
+ALWAYS               : 3
+ALWAYSWITHIN         : 9
+AND                  : 1
+ATEND                : 2
+ATMOSTONCE           : 6
+EXISTS               : 
+FORALL               : 14
+HOLDAFTER            : 13
+HOLDDURING           : 12
+IMPLIES              : 10
+LPAR                 : 29 33 34
+NOT                  : 11
+NUM                  : 5 9 12 12 13 19
+RPAR                 : 29 33 34
+SOMETIME             : 4
+SOMETIMEAFTER        : 7
+SOMETIMEBEFORE       : 8
+TERM                 : 15 18 20 25 25
+TYP                  : 25
+VAR                  : 20 25
+WITHIN               : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+formula              : 2 3 4 5 6 7 7 8 8 9 9 10 10 11 12 13 14 15 24 30 31 31 32 33 0
+list_f               : 1 32
+list_p               : 17 23 24 34
+list_v               : 14 28 29
+param                : 21 22 22 23
+vars                 : 16 26 27 27 28
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 1
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 1
+
+    (0) S' -> formula .
+    (15) formula -> formula . TERM
+
+    TERM            shift and go to state 23
+
+
+state 2
+
+    (1) formula -> AND . list_f
+    (30) list_f -> . formula
+    (31) list_f -> . formula formula
+    (32) list_f -> . list_f formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    list_f                         shift and go to state 24
+    formula                        shift and go to state 25
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 3
+
+    (2) formula -> ATEND . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 26
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 4
+
+    (3) formula -> ALWAYS . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 27
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 5
+
+    (4) formula -> SOMETIME . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 28
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 6
+
+    (5) formula -> WITHIN . NUM formula
+
+    NUM             shift and go to state 29
+
+
+state 7
+
+    (19) param -> NUM .
+
+    TERM            reduce using rule 19 (param -> NUM .)
+    NUM             reduce using rule 19 (param -> NUM .)
+    VAR             reduce using rule 19 (param -> NUM .)
+    AND             reduce using rule 19 (param -> NUM .)
+    ATEND           reduce using rule 19 (param -> NUM .)
+    ALWAYS          reduce using rule 19 (param -> NUM .)
+    SOMETIME        reduce using rule 19 (param -> NUM .)
+    WITHIN          reduce using rule 19 (param -> NUM .)
+    ATMOSTONCE      reduce using rule 19 (param -> NUM .)
+    SOMETIMEAFTER   reduce using rule 19 (param -> NUM .)
+    SOMETIMEBEFORE  reduce using rule 19 (param -> NUM .)
+    ALWAYSWITHIN    reduce using rule 19 (param -> NUM .)
+    IMPLIES         reduce using rule 19 (param -> NUM .)
+    NOT             reduce using rule 19 (param -> NUM .)
+    HOLDDURING      reduce using rule 19 (param -> NUM .)
+    HOLDAFTER       reduce using rule 19 (param -> NUM .)
+    FORALL          reduce using rule 19 (param -> NUM .)
+    LPAR            reduce using rule 19 (param -> NUM .)
+    $end            reduce using rule 19 (param -> NUM .)
+    RPAR            reduce using rule 19 (param -> NUM .)
+
+
+state 8
+
+    (6) formula -> ATMOSTONCE . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 30
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 9
+
+    (7) formula -> SOMETIMEAFTER . formula formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 31
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 10
+
+    (8) formula -> SOMETIMEBEFORE . formula formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 32
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 11
+
+    (9) formula -> ALWAYSWITHIN . NUM formula formula
+
+    NUM             shift and go to state 33
+
+
+state 12
+
+    (10) formula -> IMPLIES . formula formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 34
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 13
+
+    (11) formula -> NOT . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 35
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 14
+
+    (12) formula -> HOLDDURING . NUM NUM formula
+
+    NUM             shift and go to state 36
+
+
+state 15
+
+    (13) formula -> HOLDAFTER . NUM formula
+
+    NUM             shift and go to state 37
+
+
+state 16
+
+    (14) formula -> FORALL . list_v formula
+    (26) list_v -> . vars
+    (27) list_v -> . vars vars
+    (28) list_v -> . list_v vars
+    (29) list_v -> . LPAR list_v RPAR
+    (25) vars -> . VAR TERM TYP TERM
+
+    LPAR            shift and go to state 40
+    VAR             shift and go to state 41
+
+    list_v                         shift and go to state 38
+    vars                           shift and go to state 39
+
+state 17
+
+    (18) param -> TERM .
+
+    TERM            reduce using rule 18 (param -> TERM .)
+    NUM             reduce using rule 18 (param -> TERM .)
+    VAR             reduce using rule 18 (param -> TERM .)
+    AND             reduce using rule 18 (param -> TERM .)
+    ATEND           reduce using rule 18 (param -> TERM .)
+    ALWAYS          reduce using rule 18 (param -> TERM .)
+    SOMETIME        reduce using rule 18 (param -> TERM .)
+    WITHIN          reduce using rule 18 (param -> TERM .)
+    ATMOSTONCE      reduce using rule 18 (param -> TERM .)
+    SOMETIMEAFTER   reduce using rule 18 (param -> TERM .)
+    SOMETIMEBEFORE  reduce using rule 18 (param -> TERM .)
+    ALWAYSWITHIN    reduce using rule 18 (param -> TERM .)
+    IMPLIES         reduce using rule 18 (param -> TERM .)
+    NOT             reduce using rule 18 (param -> TERM .)
+    HOLDDURING      reduce using rule 18 (param -> TERM .)
+    HOLDAFTER       reduce using rule 18 (param -> TERM .)
+    FORALL          reduce using rule 18 (param -> TERM .)
+    LPAR            reduce using rule 18 (param -> TERM .)
+    $end            reduce using rule 18 (param -> TERM .)
+    RPAR            reduce using rule 18 (param -> TERM .)
+
+
+state 18
+
+    (16) formula -> vars .
+
+    TERM            reduce using rule 16 (formula -> vars .)
+    $end            reduce using rule 16 (formula -> vars .)
+    AND             reduce using rule 16 (formula -> vars .)
+    ATEND           reduce using rule 16 (formula -> vars .)
+    ALWAYS          reduce using rule 16 (formula -> vars .)
+    SOMETIME        reduce using rule 16 (formula -> vars .)
+    WITHIN          reduce using rule 16 (formula -> vars .)
+    ATMOSTONCE      reduce using rule 16 (formula -> vars .)
+    SOMETIMEAFTER   reduce using rule 16 (formula -> vars .)
+    SOMETIMEBEFORE  reduce using rule 16 (formula -> vars .)
+    ALWAYSWITHIN    reduce using rule 16 (formula -> vars .)
+    IMPLIES         reduce using rule 16 (formula -> vars .)
+    NOT             reduce using rule 16 (formula -> vars .)
+    HOLDDURING      reduce using rule 16 (formula -> vars .)
+    HOLDAFTER       reduce using rule 16 (formula -> vars .)
+    FORALL          reduce using rule 16 (formula -> vars .)
+    LPAR            reduce using rule 16 (formula -> vars .)
+    VAR             reduce using rule 16 (formula -> vars .)
+    NUM             reduce using rule 16 (formula -> vars .)
+    RPAR            reduce using rule 16 (formula -> vars .)
+
+
+state 19
+
+    (17) formula -> list_p .
+    (23) list_p -> list_p . param
+    (24) list_p -> list_p . formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+
+  ! shift/reduce conflict for TERM resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for ATEND resolved as shift
+  ! shift/reduce conflict for ALWAYS resolved as shift
+  ! shift/reduce conflict for SOMETIME resolved as shift
+  ! shift/reduce conflict for WITHIN resolved as shift
+  ! shift/reduce conflict for ATMOSTONCE resolved as shift
+  ! shift/reduce conflict for SOMETIMEAFTER resolved as shift
+  ! shift/reduce conflict for SOMETIMEBEFORE resolved as shift
+  ! shift/reduce conflict for ALWAYSWITHIN resolved as shift
+  ! shift/reduce conflict for IMPLIES resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+  ! shift/reduce conflict for HOLDDURING resolved as shift
+  ! shift/reduce conflict for HOLDAFTER resolved as shift
+  ! shift/reduce conflict for FORALL resolved as shift
+  ! shift/reduce conflict for LPAR resolved as shift
+    $end            reduce using rule 17 (formula -> list_p .)
+    RPAR            reduce using rule 17 (formula -> list_p .)
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+    VAR             shift and go to state 44
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+
+  ! TERM            [ reduce using rule 17 (formula -> list_p .) ]
+  ! AND             [ reduce using rule 17 (formula -> list_p .) ]
+  ! ATEND           [ reduce using rule 17 (formula -> list_p .) ]
+  ! ALWAYS          [ reduce using rule 17 (formula -> list_p .) ]
+  ! SOMETIME        [ reduce using rule 17 (formula -> list_p .) ]
+  ! WITHIN          [ reduce using rule 17 (formula -> list_p .) ]
+  ! ATMOSTONCE      [ reduce using rule 17 (formula -> list_p .) ]
+  ! SOMETIMEAFTER   [ reduce using rule 17 (formula -> list_p .) ]
+  ! SOMETIMEBEFORE  [ reduce using rule 17 (formula -> list_p .) ]
+  ! ALWAYSWITHIN    [ reduce using rule 17 (formula -> list_p .) ]
+  ! IMPLIES         [ reduce using rule 17 (formula -> list_p .) ]
+  ! NOT             [ reduce using rule 17 (formula -> list_p .) ]
+  ! HOLDDURING      [ reduce using rule 17 (formula -> list_p .) ]
+  ! HOLDAFTER       [ reduce using rule 17 (formula -> list_p .) ]
+  ! FORALL          [ reduce using rule 17 (formula -> list_p .) ]
+  ! LPAR            [ reduce using rule 17 (formula -> list_p .) ]
+  ! VAR             [ reduce using rule 17 (formula -> list_p .) ]
+  ! NUM             [ reduce using rule 17 (formula -> list_p .) ]
+
+    list_p                         shift and go to state 19
+    param                          shift and go to state 42
+    formula                        shift and go to state 43
+    vars                           shift and go to state 18
+
+state 20
+
+    (33) formula -> LPAR . formula RPAR
+    (34) formula -> LPAR . list_p RPAR
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (25) vars -> . VAR TERM TYP TERM
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 45
+    list_p                         shift and go to state 46
+    vars                           shift and go to state 18
+    param                          shift and go to state 22
+
+state 21
+
+    (25) vars -> VAR . TERM TYP TERM
+    (20) param -> VAR . TERM
+
+    TERM            shift and go to state 47
+
+
+state 22
+
+    (21) list_p -> param .
+    (22) list_p -> param . param
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+    AND             reduce using rule 21 (list_p -> param .)
+    ATEND           reduce using rule 21 (list_p -> param .)
+    ALWAYS          reduce using rule 21 (list_p -> param .)
+    SOMETIME        reduce using rule 21 (list_p -> param .)
+    WITHIN          reduce using rule 21 (list_p -> param .)
+    ATMOSTONCE      reduce using rule 21 (list_p -> param .)
+    SOMETIMEAFTER   reduce using rule 21 (list_p -> param .)
+    SOMETIMEBEFORE  reduce using rule 21 (list_p -> param .)
+    ALWAYSWITHIN    reduce using rule 21 (list_p -> param .)
+    IMPLIES         reduce using rule 21 (list_p -> param .)
+    NOT             reduce using rule 21 (list_p -> param .)
+    HOLDDURING      reduce using rule 21 (list_p -> param .)
+    HOLDAFTER       reduce using rule 21 (list_p -> param .)
+    FORALL          reduce using rule 21 (list_p -> param .)
+    LPAR            reduce using rule 21 (list_p -> param .)
+    $end            reduce using rule 21 (list_p -> param .)
+    RPAR            reduce using rule 21 (list_p -> param .)
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+    VAR             shift and go to state 49
+
+  ! TERM            [ reduce using rule 21 (list_p -> param .) ]
+  ! NUM             [ reduce using rule 21 (list_p -> param .) ]
+  ! VAR             [ reduce using rule 21 (list_p -> param .) ]
+
+    param                          shift and go to state 48
+
+state 23
+
+    (15) formula -> formula TERM .
+
+    TERM            reduce using rule 15 (formula -> formula TERM .)
+    $end            reduce using rule 15 (formula -> formula TERM .)
+    AND             reduce using rule 15 (formula -> formula TERM .)
+    ATEND           reduce using rule 15 (formula -> formula TERM .)
+    ALWAYS          reduce using rule 15 (formula -> formula TERM .)
+    SOMETIME        reduce using rule 15 (formula -> formula TERM .)
+    WITHIN          reduce using rule 15 (formula -> formula TERM .)
+    ATMOSTONCE      reduce using rule 15 (formula -> formula TERM .)
+    SOMETIMEAFTER   reduce using rule 15 (formula -> formula TERM .)
+    SOMETIMEBEFORE  reduce using rule 15 (formula -> formula TERM .)
+    ALWAYSWITHIN    reduce using rule 15 (formula -> formula TERM .)
+    IMPLIES         reduce using rule 15 (formula -> formula TERM .)
+    NOT             reduce using rule 15 (formula -> formula TERM .)
+    HOLDDURING      reduce using rule 15 (formula -> formula TERM .)
+    HOLDAFTER       reduce using rule 15 (formula -> formula TERM .)
+    FORALL          reduce using rule 15 (formula -> formula TERM .)
+    LPAR            reduce using rule 15 (formula -> formula TERM .)
+    VAR             reduce using rule 15 (formula -> formula TERM .)
+    NUM             reduce using rule 15 (formula -> formula TERM .)
+    RPAR            reduce using rule 15 (formula -> formula TERM .)
+
+
+state 24
+
+    (1) formula -> AND list_f .
+    (32) list_f -> list_f . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for ATEND resolved as shift
+  ! shift/reduce conflict for ALWAYS resolved as shift
+  ! shift/reduce conflict for SOMETIME resolved as shift
+  ! shift/reduce conflict for WITHIN resolved as shift
+  ! shift/reduce conflict for ATMOSTONCE resolved as shift
+  ! shift/reduce conflict for SOMETIMEAFTER resolved as shift
+  ! shift/reduce conflict for SOMETIMEBEFORE resolved as shift
+  ! shift/reduce conflict for ALWAYSWITHIN resolved as shift
+  ! shift/reduce conflict for IMPLIES resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+  ! shift/reduce conflict for HOLDDURING resolved as shift
+  ! shift/reduce conflict for HOLDAFTER resolved as shift
+  ! shift/reduce conflict for FORALL resolved as shift
+  ! shift/reduce conflict for LPAR resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for TERM resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+    $end            reduce using rule 1 (formula -> AND list_f .)
+    RPAR            reduce using rule 1 (formula -> AND list_f .)
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+  ! TERM            [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! AND             [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! ATEND           [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! ALWAYS          [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! SOMETIME        [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! WITHIN          [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! ATMOSTONCE      [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! SOMETIMEAFTER   [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! SOMETIMEBEFORE  [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! ALWAYSWITHIN    [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! IMPLIES         [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! NOT             [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! HOLDDURING      [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! HOLDAFTER       [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! FORALL          [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! LPAR            [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! VAR             [ reduce using rule 1 (formula -> AND list_f .) ]
+  ! NUM             [ reduce using rule 1 (formula -> AND list_f .) ]
+
+    formula                        shift and go to state 50
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 25
+
+    (30) list_f -> formula .
+    (31) list_f -> formula . formula
+    (15) formula -> formula . TERM
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for ATEND resolved as shift
+  ! shift/reduce conflict for ALWAYS resolved as shift
+  ! shift/reduce conflict for SOMETIME resolved as shift
+  ! shift/reduce conflict for WITHIN resolved as shift
+  ! shift/reduce conflict for ATMOSTONCE resolved as shift
+  ! shift/reduce conflict for SOMETIMEAFTER resolved as shift
+  ! shift/reduce conflict for SOMETIMEBEFORE resolved as shift
+  ! shift/reduce conflict for ALWAYSWITHIN resolved as shift
+  ! shift/reduce conflict for IMPLIES resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+  ! shift/reduce conflict for HOLDDURING resolved as shift
+  ! shift/reduce conflict for HOLDAFTER resolved as shift
+  ! shift/reduce conflict for FORALL resolved as shift
+  ! shift/reduce conflict for LPAR resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+    $end            reduce using rule 30 (list_f -> formula .)
+    RPAR            reduce using rule 30 (list_f -> formula .)
+    TERM            shift and go to state 52
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    NUM             shift and go to state 7
+
+  ! AND             [ reduce using rule 30 (list_f -> formula .) ]
+  ! ATEND           [ reduce using rule 30 (list_f -> formula .) ]
+  ! ALWAYS          [ reduce using rule 30 (list_f -> formula .) ]
+  ! SOMETIME        [ reduce using rule 30 (list_f -> formula .) ]
+  ! WITHIN          [ reduce using rule 30 (list_f -> formula .) ]
+  ! ATMOSTONCE      [ reduce using rule 30 (list_f -> formula .) ]
+  ! SOMETIMEAFTER   [ reduce using rule 30 (list_f -> formula .) ]
+  ! SOMETIMEBEFORE  [ reduce using rule 30 (list_f -> formula .) ]
+  ! ALWAYSWITHIN    [ reduce using rule 30 (list_f -> formula .) ]
+  ! IMPLIES         [ reduce using rule 30 (list_f -> formula .) ]
+  ! NOT             [ reduce using rule 30 (list_f -> formula .) ]
+  ! HOLDDURING      [ reduce using rule 30 (list_f -> formula .) ]
+  ! HOLDAFTER       [ reduce using rule 30 (list_f -> formula .) ]
+  ! FORALL          [ reduce using rule 30 (list_f -> formula .) ]
+  ! LPAR            [ reduce using rule 30 (list_f -> formula .) ]
+  ! VAR             [ reduce using rule 30 (list_f -> formula .) ]
+  ! TERM            [ reduce using rule 30 (list_f -> formula .) ]
+  ! NUM             [ reduce using rule 30 (list_f -> formula .) ]
+
+    formula                        shift and go to state 51
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 26
+
+    (2) formula -> ATEND formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    $end            reduce using rule 2 (formula -> ATEND formula .)
+    AND             reduce using rule 2 (formula -> ATEND formula .)
+    ATEND           reduce using rule 2 (formula -> ATEND formula .)
+    ALWAYS          reduce using rule 2 (formula -> ATEND formula .)
+    SOMETIME        reduce using rule 2 (formula -> ATEND formula .)
+    WITHIN          reduce using rule 2 (formula -> ATEND formula .)
+    ATMOSTONCE      reduce using rule 2 (formula -> ATEND formula .)
+    SOMETIMEAFTER   reduce using rule 2 (formula -> ATEND formula .)
+    SOMETIMEBEFORE  reduce using rule 2 (formula -> ATEND formula .)
+    ALWAYSWITHIN    reduce using rule 2 (formula -> ATEND formula .)
+    IMPLIES         reduce using rule 2 (formula -> ATEND formula .)
+    NOT             reduce using rule 2 (formula -> ATEND formula .)
+    HOLDDURING      reduce using rule 2 (formula -> ATEND formula .)
+    HOLDAFTER       reduce using rule 2 (formula -> ATEND formula .)
+    FORALL          reduce using rule 2 (formula -> ATEND formula .)
+    LPAR            reduce using rule 2 (formula -> ATEND formula .)
+    VAR             reduce using rule 2 (formula -> ATEND formula .)
+    NUM             reduce using rule 2 (formula -> ATEND formula .)
+    RPAR            reduce using rule 2 (formula -> ATEND formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 2 (formula -> ATEND formula .) ]
+
+
+state 27
+
+    (3) formula -> ALWAYS formula .
+    (15) formula -> formula . TERM
+
+    TERM            reduce using rule 3 (formula -> ALWAYS formula .)
+    $end            reduce using rule 3 (formula -> ALWAYS formula .)
+    AND             reduce using rule 3 (formula -> ALWAYS formula .)
+    ATEND           reduce using rule 3 (formula -> ALWAYS formula .)
+    ALWAYS          reduce using rule 3 (formula -> ALWAYS formula .)
+    SOMETIME        reduce using rule 3 (formula -> ALWAYS formula .)
+    WITHIN          reduce using rule 3 (formula -> ALWAYS formula .)
+    ATMOSTONCE      reduce using rule 3 (formula -> ALWAYS formula .)
+    SOMETIMEAFTER   reduce using rule 3 (formula -> ALWAYS formula .)
+    SOMETIMEBEFORE  reduce using rule 3 (formula -> ALWAYS formula .)
+    ALWAYSWITHIN    reduce using rule 3 (formula -> ALWAYS formula .)
+    IMPLIES         reduce using rule 3 (formula -> ALWAYS formula .)
+    NOT             reduce using rule 3 (formula -> ALWAYS formula .)
+    HOLDDURING      reduce using rule 3 (formula -> ALWAYS formula .)
+    HOLDAFTER       reduce using rule 3 (formula -> ALWAYS formula .)
+    FORALL          reduce using rule 3 (formula -> ALWAYS formula .)
+    LPAR            reduce using rule 3 (formula -> ALWAYS formula .)
+    VAR             reduce using rule 3 (formula -> ALWAYS formula .)
+    NUM             reduce using rule 3 (formula -> ALWAYS formula .)
+    RPAR            reduce using rule 3 (formula -> ALWAYS formula .)
+
+  ! TERM            [ shift and go to state 23 ]
+
+
+state 28
+
+    (4) formula -> SOMETIME formula .
+    (15) formula -> formula . TERM
+
+    TERM            reduce using rule 4 (formula -> SOMETIME formula .)
+    $end            reduce using rule 4 (formula -> SOMETIME formula .)
+    AND             reduce using rule 4 (formula -> SOMETIME formula .)
+    ATEND           reduce using rule 4 (formula -> SOMETIME formula .)
+    ALWAYS          reduce using rule 4 (formula -> SOMETIME formula .)
+    SOMETIME        reduce using rule 4 (formula -> SOMETIME formula .)
+    WITHIN          reduce using rule 4 (formula -> SOMETIME formula .)
+    ATMOSTONCE      reduce using rule 4 (formula -> SOMETIME formula .)
+    SOMETIMEAFTER   reduce using rule 4 (formula -> SOMETIME formula .)
+    SOMETIMEBEFORE  reduce using rule 4 (formula -> SOMETIME formula .)
+    ALWAYSWITHIN    reduce using rule 4 (formula -> SOMETIME formula .)
+    IMPLIES         reduce using rule 4 (formula -> SOMETIME formula .)
+    NOT             reduce using rule 4 (formula -> SOMETIME formula .)
+    HOLDDURING      reduce using rule 4 (formula -> SOMETIME formula .)
+    HOLDAFTER       reduce using rule 4 (formula -> SOMETIME formula .)
+    FORALL          reduce using rule 4 (formula -> SOMETIME formula .)
+    LPAR            reduce using rule 4 (formula -> SOMETIME formula .)
+    VAR             reduce using rule 4 (formula -> SOMETIME formula .)
+    NUM             reduce using rule 4 (formula -> SOMETIME formula .)
+    RPAR            reduce using rule 4 (formula -> SOMETIME formula .)
+
+  ! TERM            [ shift and go to state 23 ]
+
+
+state 29
+
+    (5) formula -> WITHIN NUM . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 53
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 30
+
+    (6) formula -> ATMOSTONCE formula .
+    (15) formula -> formula . TERM
+
+    TERM            reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    $end            reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    AND             reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    ATEND           reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    ALWAYS          reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    SOMETIME        reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    WITHIN          reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    ATMOSTONCE      reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    SOMETIMEAFTER   reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    SOMETIMEBEFORE  reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    ALWAYSWITHIN    reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    IMPLIES         reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    NOT             reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    HOLDDURING      reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    HOLDAFTER       reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    FORALL          reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    LPAR            reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    VAR             reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    NUM             reduce using rule 6 (formula -> ATMOSTONCE formula .)
+    RPAR            reduce using rule 6 (formula -> ATMOSTONCE formula .)
+
+  ! TERM            [ shift and go to state 23 ]
+
+
+state 31
+
+    (7) formula -> SOMETIMEAFTER formula . formula
+    (15) formula -> formula . TERM
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    TERM            shift and go to state 52
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 54
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 32
+
+    (8) formula -> SOMETIMEBEFORE formula . formula
+    (15) formula -> formula . TERM
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    TERM            shift and go to state 52
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 55
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 33
+
+    (9) formula -> ALWAYSWITHIN NUM . formula formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 56
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 34
+
+    (10) formula -> IMPLIES formula . formula
+    (15) formula -> formula . TERM
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    TERM            shift and go to state 52
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 57
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 35
+
+    (11) formula -> NOT formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    $end            reduce using rule 11 (formula -> NOT formula .)
+    AND             reduce using rule 11 (formula -> NOT formula .)
+    ATEND           reduce using rule 11 (formula -> NOT formula .)
+    ALWAYS          reduce using rule 11 (formula -> NOT formula .)
+    SOMETIME        reduce using rule 11 (formula -> NOT formula .)
+    WITHIN          reduce using rule 11 (formula -> NOT formula .)
+    ATMOSTONCE      reduce using rule 11 (formula -> NOT formula .)
+    SOMETIMEAFTER   reduce using rule 11 (formula -> NOT formula .)
+    SOMETIMEBEFORE  reduce using rule 11 (formula -> NOT formula .)
+    ALWAYSWITHIN    reduce using rule 11 (formula -> NOT formula .)
+    IMPLIES         reduce using rule 11 (formula -> NOT formula .)
+    NOT             reduce using rule 11 (formula -> NOT formula .)
+    HOLDDURING      reduce using rule 11 (formula -> NOT formula .)
+    HOLDAFTER       reduce using rule 11 (formula -> NOT formula .)
+    FORALL          reduce using rule 11 (formula -> NOT formula .)
+    LPAR            reduce using rule 11 (formula -> NOT formula .)
+    VAR             reduce using rule 11 (formula -> NOT formula .)
+    NUM             reduce using rule 11 (formula -> NOT formula .)
+    RPAR            reduce using rule 11 (formula -> NOT formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 11 (formula -> NOT formula .) ]
+
+
+state 36
+
+    (12) formula -> HOLDDURING NUM . NUM formula
+
+    NUM             shift and go to state 58
+
+
+state 37
+
+    (13) formula -> HOLDAFTER NUM . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 59
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 38
+
+    (14) formula -> FORALL list_v . formula
+    (28) list_v -> list_v . vars
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 60
+    vars                           shift and go to state 61
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 39
+
+    (26) list_v -> vars .
+    (27) list_v -> vars . vars
+    (25) vars -> . VAR TERM TYP TERM
+
+  ! shift/reduce conflict for VAR resolved as shift
+    AND             reduce using rule 26 (list_v -> vars .)
+    ATEND           reduce using rule 26 (list_v -> vars .)
+    ALWAYS          reduce using rule 26 (list_v -> vars .)
+    SOMETIME        reduce using rule 26 (list_v -> vars .)
+    WITHIN          reduce using rule 26 (list_v -> vars .)
+    ATMOSTONCE      reduce using rule 26 (list_v -> vars .)
+    SOMETIMEAFTER   reduce using rule 26 (list_v -> vars .)
+    SOMETIMEBEFORE  reduce using rule 26 (list_v -> vars .)
+    ALWAYSWITHIN    reduce using rule 26 (list_v -> vars .)
+    IMPLIES         reduce using rule 26 (list_v -> vars .)
+    NOT             reduce using rule 26 (list_v -> vars .)
+    HOLDDURING      reduce using rule 26 (list_v -> vars .)
+    HOLDAFTER       reduce using rule 26 (list_v -> vars .)
+    FORALL          reduce using rule 26 (list_v -> vars .)
+    LPAR            reduce using rule 26 (list_v -> vars .)
+    TERM            reduce using rule 26 (list_v -> vars .)
+    NUM             reduce using rule 26 (list_v -> vars .)
+    RPAR            reduce using rule 26 (list_v -> vars .)
+    VAR             shift and go to state 41
+
+  ! VAR             [ reduce using rule 26 (list_v -> vars .) ]
+
+    vars                           shift and go to state 62
+
+state 40
+
+    (29) list_v -> LPAR . list_v RPAR
+    (26) list_v -> . vars
+    (27) list_v -> . vars vars
+    (28) list_v -> . list_v vars
+    (29) list_v -> . LPAR list_v RPAR
+    (25) vars -> . VAR TERM TYP TERM
+
+    LPAR            shift and go to state 40
+    VAR             shift and go to state 41
+
+    list_v                         shift and go to state 63
+    vars                           shift and go to state 39
+
+state 41
+
+    (25) vars -> VAR . TERM TYP TERM
+
+    TERM            shift and go to state 64
+
+
+state 42
+
+    (23) list_p -> list_p param .
+    (21) list_p -> param .
+    (22) list_p -> param . param
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+  ! reduce/reduce conflict for AND resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for ATEND resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for ALWAYS resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for SOMETIME resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for WITHIN resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for ATMOSTONCE resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for SOMETIMEAFTER resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for SOMETIMEBEFORE resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for ALWAYSWITHIN resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for IMPLIES resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for NOT resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for HOLDDURING resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for HOLDAFTER resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for FORALL resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for LPAR resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for VAR resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for TERM resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for NUM resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for $end resolved using rule 21 (list_p -> param .)
+  ! reduce/reduce conflict for RPAR resolved using rule 21 (list_p -> param .)
+  ! shift/reduce conflict for TERM resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+    AND             reduce using rule 21 (list_p -> param .)
+    ATEND           reduce using rule 21 (list_p -> param .)
+    ALWAYS          reduce using rule 21 (list_p -> param .)
+    SOMETIME        reduce using rule 21 (list_p -> param .)
+    WITHIN          reduce using rule 21 (list_p -> param .)
+    ATMOSTONCE      reduce using rule 21 (list_p -> param .)
+    SOMETIMEAFTER   reduce using rule 21 (list_p -> param .)
+    SOMETIMEBEFORE  reduce using rule 21 (list_p -> param .)
+    ALWAYSWITHIN    reduce using rule 21 (list_p -> param .)
+    IMPLIES         reduce using rule 21 (list_p -> param .)
+    NOT             reduce using rule 21 (list_p -> param .)
+    HOLDDURING      reduce using rule 21 (list_p -> param .)
+    HOLDAFTER       reduce using rule 21 (list_p -> param .)
+    FORALL          reduce using rule 21 (list_p -> param .)
+    LPAR            reduce using rule 21 (list_p -> param .)
+    $end            reduce using rule 21 (list_p -> param .)
+    RPAR            reduce using rule 21 (list_p -> param .)
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+    VAR             shift and go to state 49
+
+  ! TERM            [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! NUM             [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! VAR             [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! AND             [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! ATEND           [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! ALWAYS          [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! SOMETIME        [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! WITHIN          [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! ATMOSTONCE      [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! SOMETIMEAFTER   [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! SOMETIMEBEFORE  [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! ALWAYSWITHIN    [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! IMPLIES         [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! NOT             [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! HOLDDURING      [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! HOLDAFTER       [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! FORALL          [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! LPAR            [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! $end            [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! RPAR            [ reduce using rule 23 (list_p -> list_p param .) ]
+  ! VAR             [ reduce using rule 21 (list_p -> param .) ]
+  ! TERM            [ reduce using rule 21 (list_p -> param .) ]
+  ! NUM             [ reduce using rule 21 (list_p -> param .) ]
+
+    param                          shift and go to state 48
+
+state 43
+
+    (24) list_p -> list_p formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    NUM             reduce using rule 24 (list_p -> list_p formula .)
+    VAR             reduce using rule 24 (list_p -> list_p formula .)
+    AND             reduce using rule 24 (list_p -> list_p formula .)
+    ATEND           reduce using rule 24 (list_p -> list_p formula .)
+    ALWAYS          reduce using rule 24 (list_p -> list_p formula .)
+    SOMETIME        reduce using rule 24 (list_p -> list_p formula .)
+    WITHIN          reduce using rule 24 (list_p -> list_p formula .)
+    ATMOSTONCE      reduce using rule 24 (list_p -> list_p formula .)
+    SOMETIMEAFTER   reduce using rule 24 (list_p -> list_p formula .)
+    SOMETIMEBEFORE  reduce using rule 24 (list_p -> list_p formula .)
+    ALWAYSWITHIN    reduce using rule 24 (list_p -> list_p formula .)
+    IMPLIES         reduce using rule 24 (list_p -> list_p formula .)
+    NOT             reduce using rule 24 (list_p -> list_p formula .)
+    HOLDDURING      reduce using rule 24 (list_p -> list_p formula .)
+    HOLDAFTER       reduce using rule 24 (list_p -> list_p formula .)
+    FORALL          reduce using rule 24 (list_p -> list_p formula .)
+    LPAR            reduce using rule 24 (list_p -> list_p formula .)
+    $end            reduce using rule 24 (list_p -> list_p formula .)
+    RPAR            reduce using rule 24 (list_p -> list_p formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 24 (list_p -> list_p formula .) ]
+
+
+state 44
+
+    (20) param -> VAR . TERM
+    (25) vars -> VAR . TERM TYP TERM
+
+    TERM            shift and go to state 65
+
+
+state 45
+
+    (33) formula -> LPAR formula . RPAR
+    (15) formula -> formula . TERM
+
+    RPAR            shift and go to state 66
+    TERM            shift and go to state 23
+
+
+state 46
+
+    (34) formula -> LPAR list_p . RPAR
+    (17) formula -> list_p .
+    (23) list_p -> list_p . param
+    (24) list_p -> list_p . formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+
+  ! shift/reduce conflict for RPAR resolved as shift
+  ! shift/reduce conflict for TERM resolved as shift
+    RPAR            shift and go to state 67
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+    VAR             shift and go to state 44
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+
+  ! RPAR            [ reduce using rule 17 (formula -> list_p .) ]
+  ! TERM            [ reduce using rule 17 (formula -> list_p .) ]
+
+    list_p                         shift and go to state 19
+    param                          shift and go to state 42
+    formula                        shift and go to state 43
+    vars                           shift and go to state 18
+
+state 47
+
+    (25) vars -> VAR TERM . TYP TERM
+    (20) param -> VAR TERM .
+
+    TYP             shift and go to state 68
+    TERM            reduce using rule 20 (param -> VAR TERM .)
+    NUM             reduce using rule 20 (param -> VAR TERM .)
+    VAR             reduce using rule 20 (param -> VAR TERM .)
+    AND             reduce using rule 20 (param -> VAR TERM .)
+    ATEND           reduce using rule 20 (param -> VAR TERM .)
+    ALWAYS          reduce using rule 20 (param -> VAR TERM .)
+    SOMETIME        reduce using rule 20 (param -> VAR TERM .)
+    WITHIN          reduce using rule 20 (param -> VAR TERM .)
+    ATMOSTONCE      reduce using rule 20 (param -> VAR TERM .)
+    SOMETIMEAFTER   reduce using rule 20 (param -> VAR TERM .)
+    SOMETIMEBEFORE  reduce using rule 20 (param -> VAR TERM .)
+    ALWAYSWITHIN    reduce using rule 20 (param -> VAR TERM .)
+    IMPLIES         reduce using rule 20 (param -> VAR TERM .)
+    NOT             reduce using rule 20 (param -> VAR TERM .)
+    HOLDDURING      reduce using rule 20 (param -> VAR TERM .)
+    HOLDAFTER       reduce using rule 20 (param -> VAR TERM .)
+    FORALL          reduce using rule 20 (param -> VAR TERM .)
+    LPAR            reduce using rule 20 (param -> VAR TERM .)
+    $end            reduce using rule 20 (param -> VAR TERM .)
+    RPAR            reduce using rule 20 (param -> VAR TERM .)
+
+
+state 48
+
+    (22) list_p -> param param .
+
+    TERM            reduce using rule 22 (list_p -> param param .)
+    NUM             reduce using rule 22 (list_p -> param param .)
+    VAR             reduce using rule 22 (list_p -> param param .)
+    AND             reduce using rule 22 (list_p -> param param .)
+    ATEND           reduce using rule 22 (list_p -> param param .)
+    ALWAYS          reduce using rule 22 (list_p -> param param .)
+    SOMETIME        reduce using rule 22 (list_p -> param param .)
+    WITHIN          reduce using rule 22 (list_p -> param param .)
+    ATMOSTONCE      reduce using rule 22 (list_p -> param param .)
+    SOMETIMEAFTER   reduce using rule 22 (list_p -> param param .)
+    SOMETIMEBEFORE  reduce using rule 22 (list_p -> param param .)
+    ALWAYSWITHIN    reduce using rule 22 (list_p -> param param .)
+    IMPLIES         reduce using rule 22 (list_p -> param param .)
+    NOT             reduce using rule 22 (list_p -> param param .)
+    HOLDDURING      reduce using rule 22 (list_p -> param param .)
+    HOLDAFTER       reduce using rule 22 (list_p -> param param .)
+    FORALL          reduce using rule 22 (list_p -> param param .)
+    LPAR            reduce using rule 22 (list_p -> param param .)
+    $end            reduce using rule 22 (list_p -> param param .)
+    RPAR            reduce using rule 22 (list_p -> param param .)
+
+
+state 49
+
+    (20) param -> VAR . TERM
+
+    TERM            shift and go to state 69
+
+
+state 50
+
+    (32) list_f -> list_f formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    AND             reduce using rule 32 (list_f -> list_f formula .)
+    ATEND           reduce using rule 32 (list_f -> list_f formula .)
+    ALWAYS          reduce using rule 32 (list_f -> list_f formula .)
+    SOMETIME        reduce using rule 32 (list_f -> list_f formula .)
+    WITHIN          reduce using rule 32 (list_f -> list_f formula .)
+    ATMOSTONCE      reduce using rule 32 (list_f -> list_f formula .)
+    SOMETIMEAFTER   reduce using rule 32 (list_f -> list_f formula .)
+    SOMETIMEBEFORE  reduce using rule 32 (list_f -> list_f formula .)
+    ALWAYSWITHIN    reduce using rule 32 (list_f -> list_f formula .)
+    IMPLIES         reduce using rule 32 (list_f -> list_f formula .)
+    NOT             reduce using rule 32 (list_f -> list_f formula .)
+    HOLDDURING      reduce using rule 32 (list_f -> list_f formula .)
+    HOLDAFTER       reduce using rule 32 (list_f -> list_f formula .)
+    FORALL          reduce using rule 32 (list_f -> list_f formula .)
+    LPAR            reduce using rule 32 (list_f -> list_f formula .)
+    VAR             reduce using rule 32 (list_f -> list_f formula .)
+    NUM             reduce using rule 32 (list_f -> list_f formula .)
+    $end            reduce using rule 32 (list_f -> list_f formula .)
+    RPAR            reduce using rule 32 (list_f -> list_f formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 32 (list_f -> list_f formula .) ]
+
+
+state 51
+
+    (31) list_f -> formula formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    AND             reduce using rule 31 (list_f -> formula formula .)
+    ATEND           reduce using rule 31 (list_f -> formula formula .)
+    ALWAYS          reduce using rule 31 (list_f -> formula formula .)
+    SOMETIME        reduce using rule 31 (list_f -> formula formula .)
+    WITHIN          reduce using rule 31 (list_f -> formula formula .)
+    ATMOSTONCE      reduce using rule 31 (list_f -> formula formula .)
+    SOMETIMEAFTER   reduce using rule 31 (list_f -> formula formula .)
+    SOMETIMEBEFORE  reduce using rule 31 (list_f -> formula formula .)
+    ALWAYSWITHIN    reduce using rule 31 (list_f -> formula formula .)
+    IMPLIES         reduce using rule 31 (list_f -> formula formula .)
+    NOT             reduce using rule 31 (list_f -> formula formula .)
+    HOLDDURING      reduce using rule 31 (list_f -> formula formula .)
+    HOLDAFTER       reduce using rule 31 (list_f -> formula formula .)
+    FORALL          reduce using rule 31 (list_f -> formula formula .)
+    LPAR            reduce using rule 31 (list_f -> formula formula .)
+    VAR             reduce using rule 31 (list_f -> formula formula .)
+    NUM             reduce using rule 31 (list_f -> formula formula .)
+    $end            reduce using rule 31 (list_f -> formula formula .)
+    RPAR            reduce using rule 31 (list_f -> formula formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 31 (list_f -> formula formula .) ]
+
+
+state 52
+
+    (15) formula -> formula TERM .
+    (18) param -> TERM .
+
+  ! reduce/reduce conflict for TERM resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for NUM resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for VAR resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for AND resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for ATEND resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for ALWAYS resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for SOMETIME resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for WITHIN resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for ATMOSTONCE resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for SOMETIMEAFTER resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for SOMETIMEBEFORE resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for ALWAYSWITHIN resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for IMPLIES resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for NOT resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for HOLDDURING resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for HOLDAFTER resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for FORALL resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for LPAR resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for $end resolved using rule 15 (formula -> formula TERM .)
+  ! reduce/reduce conflict for RPAR resolved using rule 15 (formula -> formula TERM .)
+    AND             reduce using rule 15 (formula -> formula TERM .)
+    ATEND           reduce using rule 15 (formula -> formula TERM .)
+    ALWAYS          reduce using rule 15 (formula -> formula TERM .)
+    SOMETIME        reduce using rule 15 (formula -> formula TERM .)
+    WITHIN          reduce using rule 15 (formula -> formula TERM .)
+    ATMOSTONCE      reduce using rule 15 (formula -> formula TERM .)
+    SOMETIMEAFTER   reduce using rule 15 (formula -> formula TERM .)
+    SOMETIMEBEFORE  reduce using rule 15 (formula -> formula TERM .)
+    ALWAYSWITHIN    reduce using rule 15 (formula -> formula TERM .)
+    IMPLIES         reduce using rule 15 (formula -> formula TERM .)
+    NOT             reduce using rule 15 (formula -> formula TERM .)
+    HOLDDURING      reduce using rule 15 (formula -> formula TERM .)
+    HOLDAFTER       reduce using rule 15 (formula -> formula TERM .)
+    FORALL          reduce using rule 15 (formula -> formula TERM .)
+    LPAR            reduce using rule 15 (formula -> formula TERM .)
+    VAR             reduce using rule 15 (formula -> formula TERM .)
+    TERM            reduce using rule 15 (formula -> formula TERM .)
+    NUM             reduce using rule 15 (formula -> formula TERM .)
+    $end            reduce using rule 15 (formula -> formula TERM .)
+    RPAR            reduce using rule 15 (formula -> formula TERM .)
+
+  ! TERM            [ reduce using rule 18 (param -> TERM .) ]
+  ! NUM             [ reduce using rule 18 (param -> TERM .) ]
+  ! VAR             [ reduce using rule 18 (param -> TERM .) ]
+  ! AND             [ reduce using rule 18 (param -> TERM .) ]
+  ! ATEND           [ reduce using rule 18 (param -> TERM .) ]
+  ! ALWAYS          [ reduce using rule 18 (param -> TERM .) ]
+  ! SOMETIME        [ reduce using rule 18 (param -> TERM .) ]
+  ! WITHIN          [ reduce using rule 18 (param -> TERM .) ]
+  ! ATMOSTONCE      [ reduce using rule 18 (param -> TERM .) ]
+  ! SOMETIMEAFTER   [ reduce using rule 18 (param -> TERM .) ]
+  ! SOMETIMEBEFORE  [ reduce using rule 18 (param -> TERM .) ]
+  ! ALWAYSWITHIN    [ reduce using rule 18 (param -> TERM .) ]
+  ! IMPLIES         [ reduce using rule 18 (param -> TERM .) ]
+  ! NOT             [ reduce using rule 18 (param -> TERM .) ]
+  ! HOLDDURING      [ reduce using rule 18 (param -> TERM .) ]
+  ! HOLDAFTER       [ reduce using rule 18 (param -> TERM .) ]
+  ! FORALL          [ reduce using rule 18 (param -> TERM .) ]
+  ! LPAR            [ reduce using rule 18 (param -> TERM .) ]
+  ! $end            [ reduce using rule 18 (param -> TERM .) ]
+  ! RPAR            [ reduce using rule 18 (param -> TERM .) ]
+
+
+state 53
+
+    (5) formula -> WITHIN NUM formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    $end            reduce using rule 5 (formula -> WITHIN NUM formula .)
+    AND             reduce using rule 5 (formula -> WITHIN NUM formula .)
+    ATEND           reduce using rule 5 (formula -> WITHIN NUM formula .)
+    ALWAYS          reduce using rule 5 (formula -> WITHIN NUM formula .)
+    SOMETIME        reduce using rule 5 (formula -> WITHIN NUM formula .)
+    WITHIN          reduce using rule 5 (formula -> WITHIN NUM formula .)
+    ATMOSTONCE      reduce using rule 5 (formula -> WITHIN NUM formula .)
+    SOMETIMEAFTER   reduce using rule 5 (formula -> WITHIN NUM formula .)
+    SOMETIMEBEFORE  reduce using rule 5 (formula -> WITHIN NUM formula .)
+    ALWAYSWITHIN    reduce using rule 5 (formula -> WITHIN NUM formula .)
+    IMPLIES         reduce using rule 5 (formula -> WITHIN NUM formula .)
+    NOT             reduce using rule 5 (formula -> WITHIN NUM formula .)
+    HOLDDURING      reduce using rule 5 (formula -> WITHIN NUM formula .)
+    HOLDAFTER       reduce using rule 5 (formula -> WITHIN NUM formula .)
+    FORALL          reduce using rule 5 (formula -> WITHIN NUM formula .)
+    LPAR            reduce using rule 5 (formula -> WITHIN NUM formula .)
+    VAR             reduce using rule 5 (formula -> WITHIN NUM formula .)
+    NUM             reduce using rule 5 (formula -> WITHIN NUM formula .)
+    RPAR            reduce using rule 5 (formula -> WITHIN NUM formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 5 (formula -> WITHIN NUM formula .) ]
+
+
+state 54
+
+    (7) formula -> SOMETIMEAFTER formula formula .
+    (15) formula -> formula . TERM
+
+    TERM            reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    $end            reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    AND             reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    ATEND           reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    ALWAYS          reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    SOMETIME        reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    WITHIN          reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    ATMOSTONCE      reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    SOMETIMEAFTER   reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    SOMETIMEBEFORE  reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    ALWAYSWITHIN    reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    IMPLIES         reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    NOT             reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    HOLDDURING      reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    HOLDAFTER       reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    FORALL          reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    LPAR            reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    VAR             reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    NUM             reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+    RPAR            reduce using rule 7 (formula -> SOMETIMEAFTER formula formula .)
+
+  ! TERM            [ shift and go to state 23 ]
+
+
+state 55
+
+    (8) formula -> SOMETIMEBEFORE formula formula .
+    (15) formula -> formula . TERM
+
+    TERM            reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    $end            reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    AND             reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    ATEND           reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    ALWAYS          reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    SOMETIME        reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    WITHIN          reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    ATMOSTONCE      reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    SOMETIMEAFTER   reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    SOMETIMEBEFORE  reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    ALWAYSWITHIN    reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    IMPLIES         reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    NOT             reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    HOLDDURING      reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    HOLDAFTER       reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    FORALL          reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    LPAR            reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    VAR             reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    NUM             reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+    RPAR            reduce using rule 8 (formula -> SOMETIMEBEFORE formula formula .)
+
+  ! TERM            [ shift and go to state 23 ]
+
+
+state 56
+
+    (9) formula -> ALWAYSWITHIN NUM formula . formula
+    (15) formula -> formula . TERM
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    TERM            shift and go to state 52
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 70
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 57
+
+    (10) formula -> IMPLIES formula formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    $end            reduce using rule 10 (formula -> IMPLIES formula formula .)
+    AND             reduce using rule 10 (formula -> IMPLIES formula formula .)
+    ATEND           reduce using rule 10 (formula -> IMPLIES formula formula .)
+    ALWAYS          reduce using rule 10 (formula -> IMPLIES formula formula .)
+    SOMETIME        reduce using rule 10 (formula -> IMPLIES formula formula .)
+    WITHIN          reduce using rule 10 (formula -> IMPLIES formula formula .)
+    ATMOSTONCE      reduce using rule 10 (formula -> IMPLIES formula formula .)
+    SOMETIMEAFTER   reduce using rule 10 (formula -> IMPLIES formula formula .)
+    SOMETIMEBEFORE  reduce using rule 10 (formula -> IMPLIES formula formula .)
+    ALWAYSWITHIN    reduce using rule 10 (formula -> IMPLIES formula formula .)
+    IMPLIES         reduce using rule 10 (formula -> IMPLIES formula formula .)
+    NOT             reduce using rule 10 (formula -> IMPLIES formula formula .)
+    HOLDDURING      reduce using rule 10 (formula -> IMPLIES formula formula .)
+    HOLDAFTER       reduce using rule 10 (formula -> IMPLIES formula formula .)
+    FORALL          reduce using rule 10 (formula -> IMPLIES formula formula .)
+    LPAR            reduce using rule 10 (formula -> IMPLIES formula formula .)
+    VAR             reduce using rule 10 (formula -> IMPLIES formula formula .)
+    NUM             reduce using rule 10 (formula -> IMPLIES formula formula .)
+    RPAR            reduce using rule 10 (formula -> IMPLIES formula formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 10 (formula -> IMPLIES formula formula .) ]
+
+
+state 58
+
+    (12) formula -> HOLDDURING NUM NUM . formula
+    (1) formula -> . AND list_f
+    (2) formula -> . ATEND formula
+    (3) formula -> . ALWAYS formula
+    (4) formula -> . SOMETIME formula
+    (5) formula -> . WITHIN NUM formula
+    (6) formula -> . ATMOSTONCE formula
+    (7) formula -> . SOMETIMEAFTER formula formula
+    (8) formula -> . SOMETIMEBEFORE formula formula
+    (9) formula -> . ALWAYSWITHIN NUM formula formula
+    (10) formula -> . IMPLIES formula formula
+    (11) formula -> . NOT formula
+    (12) formula -> . HOLDDURING NUM NUM formula
+    (13) formula -> . HOLDAFTER NUM formula
+    (14) formula -> . FORALL list_v formula
+    (15) formula -> . formula TERM
+    (16) formula -> . vars
+    (17) formula -> . list_p
+    (33) formula -> . LPAR formula RPAR
+    (34) formula -> . LPAR list_p RPAR
+    (25) vars -> . VAR TERM TYP TERM
+    (21) list_p -> . param
+    (22) list_p -> . param param
+    (23) list_p -> . list_p param
+    (24) list_p -> . list_p formula
+    (18) param -> . TERM
+    (19) param -> . NUM
+    (20) param -> . VAR TERM
+
+    AND             shift and go to state 2
+    ATEND           shift and go to state 3
+    ALWAYS          shift and go to state 4
+    SOMETIME        shift and go to state 5
+    WITHIN          shift and go to state 6
+    ATMOSTONCE      shift and go to state 8
+    SOMETIMEAFTER   shift and go to state 9
+    SOMETIMEBEFORE  shift and go to state 10
+    ALWAYSWITHIN    shift and go to state 11
+    IMPLIES         shift and go to state 12
+    NOT             shift and go to state 13
+    HOLDDURING      shift and go to state 14
+    HOLDAFTER       shift and go to state 15
+    FORALL          shift and go to state 16
+    LPAR            shift and go to state 20
+    VAR             shift and go to state 21
+    TERM            shift and go to state 17
+    NUM             shift and go to state 7
+
+    formula                        shift and go to state 71
+    vars                           shift and go to state 18
+    list_p                         shift and go to state 19
+    param                          shift and go to state 22
+
+state 59
+
+    (13) formula -> HOLDAFTER NUM formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    $end            reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    AND             reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    ATEND           reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    ALWAYS          reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    SOMETIME        reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    WITHIN          reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    ATMOSTONCE      reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    SOMETIMEAFTER   reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    SOMETIMEBEFORE  reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    ALWAYSWITHIN    reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    IMPLIES         reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    NOT             reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    HOLDDURING      reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    HOLDAFTER       reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    FORALL          reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    LPAR            reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    VAR             reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    NUM             reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    RPAR            reduce using rule 13 (formula -> HOLDAFTER NUM formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 13 (formula -> HOLDAFTER NUM formula .) ]
+
+
+state 60
+
+    (14) formula -> FORALL list_v formula .
+    (15) formula -> formula . TERM
+
+    TERM            reduce using rule 14 (formula -> FORALL list_v formula .)
+    $end            reduce using rule 14 (formula -> FORALL list_v formula .)
+    AND             reduce using rule 14 (formula -> FORALL list_v formula .)
+    ATEND           reduce using rule 14 (formula -> FORALL list_v formula .)
+    ALWAYS          reduce using rule 14 (formula -> FORALL list_v formula .)
+    SOMETIME        reduce using rule 14 (formula -> FORALL list_v formula .)
+    WITHIN          reduce using rule 14 (formula -> FORALL list_v formula .)
+    ATMOSTONCE      reduce using rule 14 (formula -> FORALL list_v formula .)
+    SOMETIMEAFTER   reduce using rule 14 (formula -> FORALL list_v formula .)
+    SOMETIMEBEFORE  reduce using rule 14 (formula -> FORALL list_v formula .)
+    ALWAYSWITHIN    reduce using rule 14 (formula -> FORALL list_v formula .)
+    IMPLIES         reduce using rule 14 (formula -> FORALL list_v formula .)
+    NOT             reduce using rule 14 (formula -> FORALL list_v formula .)
+    HOLDDURING      reduce using rule 14 (formula -> FORALL list_v formula .)
+    HOLDAFTER       reduce using rule 14 (formula -> FORALL list_v formula .)
+    FORALL          reduce using rule 14 (formula -> FORALL list_v formula .)
+    LPAR            reduce using rule 14 (formula -> FORALL list_v formula .)
+    VAR             reduce using rule 14 (formula -> FORALL list_v formula .)
+    NUM             reduce using rule 14 (formula -> FORALL list_v formula .)
+    RPAR            reduce using rule 14 (formula -> FORALL list_v formula .)
+
+  ! TERM            [ shift and go to state 23 ]
+
+
+state 61
+
+    (28) list_v -> list_v vars .
+    (16) formula -> vars .
+
+  ! reduce/reduce conflict for AND resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for ATEND resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for ALWAYS resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for SOMETIME resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for WITHIN resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for ATMOSTONCE resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for SOMETIMEAFTER resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for SOMETIMEBEFORE resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for ALWAYSWITHIN resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for IMPLIES resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for NOT resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for HOLDDURING resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for HOLDAFTER resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for FORALL resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for LPAR resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for VAR resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for TERM resolved using rule 16 (formula -> vars .)
+  ! reduce/reduce conflict for NUM resolved using rule 16 (formula -> vars .)
+    AND             reduce using rule 16 (formula -> vars .)
+    ATEND           reduce using rule 16 (formula -> vars .)
+    ALWAYS          reduce using rule 16 (formula -> vars .)
+    SOMETIME        reduce using rule 16 (formula -> vars .)
+    WITHIN          reduce using rule 16 (formula -> vars .)
+    ATMOSTONCE      reduce using rule 16 (formula -> vars .)
+    SOMETIMEAFTER   reduce using rule 16 (formula -> vars .)
+    SOMETIMEBEFORE  reduce using rule 16 (formula -> vars .)
+    ALWAYSWITHIN    reduce using rule 16 (formula -> vars .)
+    IMPLIES         reduce using rule 16 (formula -> vars .)
+    NOT             reduce using rule 16 (formula -> vars .)
+    HOLDDURING      reduce using rule 16 (formula -> vars .)
+    HOLDAFTER       reduce using rule 16 (formula -> vars .)
+    FORALL          reduce using rule 16 (formula -> vars .)
+    LPAR            reduce using rule 16 (formula -> vars .)
+    VAR             reduce using rule 16 (formula -> vars .)
+    TERM            reduce using rule 16 (formula -> vars .)
+    NUM             reduce using rule 16 (formula -> vars .)
+    $end            reduce using rule 16 (formula -> vars .)
+    RPAR            reduce using rule 16 (formula -> vars .)
+
+  ! AND             [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! ATEND           [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! ALWAYS          [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! SOMETIME        [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! WITHIN          [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! ATMOSTONCE      [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! SOMETIMEAFTER   [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! SOMETIMEBEFORE  [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! ALWAYSWITHIN    [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! IMPLIES         [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! NOT             [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! HOLDDURING      [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! HOLDAFTER       [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! FORALL          [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! LPAR            [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! VAR             [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! TERM            [ reduce using rule 28 (list_v -> list_v vars .) ]
+  ! NUM             [ reduce using rule 28 (list_v -> list_v vars .) ]
+
+
+state 62
+
+    (27) list_v -> vars vars .
+
+    AND             reduce using rule 27 (list_v -> vars vars .)
+    ATEND           reduce using rule 27 (list_v -> vars vars .)
+    ALWAYS          reduce using rule 27 (list_v -> vars vars .)
+    SOMETIME        reduce using rule 27 (list_v -> vars vars .)
+    WITHIN          reduce using rule 27 (list_v -> vars vars .)
+    ATMOSTONCE      reduce using rule 27 (list_v -> vars vars .)
+    SOMETIMEAFTER   reduce using rule 27 (list_v -> vars vars .)
+    SOMETIMEBEFORE  reduce using rule 27 (list_v -> vars vars .)
+    ALWAYSWITHIN    reduce using rule 27 (list_v -> vars vars .)
+    IMPLIES         reduce using rule 27 (list_v -> vars vars .)
+    NOT             reduce using rule 27 (list_v -> vars vars .)
+    HOLDDURING      reduce using rule 27 (list_v -> vars vars .)
+    HOLDAFTER       reduce using rule 27 (list_v -> vars vars .)
+    FORALL          reduce using rule 27 (list_v -> vars vars .)
+    LPAR            reduce using rule 27 (list_v -> vars vars .)
+    VAR             reduce using rule 27 (list_v -> vars vars .)
+    TERM            reduce using rule 27 (list_v -> vars vars .)
+    NUM             reduce using rule 27 (list_v -> vars vars .)
+    RPAR            reduce using rule 27 (list_v -> vars vars .)
+
+
+state 63
+
+    (29) list_v -> LPAR list_v . RPAR
+    (28) list_v -> list_v . vars
+    (25) vars -> . VAR TERM TYP TERM
+
+    RPAR            shift and go to state 72
+    VAR             shift and go to state 41
+
+    vars                           shift and go to state 73
+
+state 64
+
+    (25) vars -> VAR TERM . TYP TERM
+
+    TYP             shift and go to state 68
+
+
+state 65
+
+    (20) param -> VAR TERM .
+    (25) vars -> VAR TERM . TYP TERM
+
+    TERM            reduce using rule 20 (param -> VAR TERM .)
+    NUM             reduce using rule 20 (param -> VAR TERM .)
+    VAR             reduce using rule 20 (param -> VAR TERM .)
+    AND             reduce using rule 20 (param -> VAR TERM .)
+    ATEND           reduce using rule 20 (param -> VAR TERM .)
+    ALWAYS          reduce using rule 20 (param -> VAR TERM .)
+    SOMETIME        reduce using rule 20 (param -> VAR TERM .)
+    WITHIN          reduce using rule 20 (param -> VAR TERM .)
+    ATMOSTONCE      reduce using rule 20 (param -> VAR TERM .)
+    SOMETIMEAFTER   reduce using rule 20 (param -> VAR TERM .)
+    SOMETIMEBEFORE  reduce using rule 20 (param -> VAR TERM .)
+    ALWAYSWITHIN    reduce using rule 20 (param -> VAR TERM .)
+    IMPLIES         reduce using rule 20 (param -> VAR TERM .)
+    NOT             reduce using rule 20 (param -> VAR TERM .)
+    HOLDDURING      reduce using rule 20 (param -> VAR TERM .)
+    HOLDAFTER       reduce using rule 20 (param -> VAR TERM .)
+    FORALL          reduce using rule 20 (param -> VAR TERM .)
+    LPAR            reduce using rule 20 (param -> VAR TERM .)
+    $end            reduce using rule 20 (param -> VAR TERM .)
+    RPAR            reduce using rule 20 (param -> VAR TERM .)
+    TYP             shift and go to state 68
+
+
+state 66
+
+    (33) formula -> LPAR formula RPAR .
+
+    TERM            reduce using rule 33 (formula -> LPAR formula RPAR .)
+    $end            reduce using rule 33 (formula -> LPAR formula RPAR .)
+    AND             reduce using rule 33 (formula -> LPAR formula RPAR .)
+    ATEND           reduce using rule 33 (formula -> LPAR formula RPAR .)
+    ALWAYS          reduce using rule 33 (formula -> LPAR formula RPAR .)
+    SOMETIME        reduce using rule 33 (formula -> LPAR formula RPAR .)
+    WITHIN          reduce using rule 33 (formula -> LPAR formula RPAR .)
+    ATMOSTONCE      reduce using rule 33 (formula -> LPAR formula RPAR .)
+    SOMETIMEAFTER   reduce using rule 33 (formula -> LPAR formula RPAR .)
+    SOMETIMEBEFORE  reduce using rule 33 (formula -> LPAR formula RPAR .)
+    ALWAYSWITHIN    reduce using rule 33 (formula -> LPAR formula RPAR .)
+    IMPLIES         reduce using rule 33 (formula -> LPAR formula RPAR .)
+    NOT             reduce using rule 33 (formula -> LPAR formula RPAR .)
+    HOLDDURING      reduce using rule 33 (formula -> LPAR formula RPAR .)
+    HOLDAFTER       reduce using rule 33 (formula -> LPAR formula RPAR .)
+    FORALL          reduce using rule 33 (formula -> LPAR formula RPAR .)
+    LPAR            reduce using rule 33 (formula -> LPAR formula RPAR .)
+    VAR             reduce using rule 33 (formula -> LPAR formula RPAR .)
+    NUM             reduce using rule 33 (formula -> LPAR formula RPAR .)
+    RPAR            reduce using rule 33 (formula -> LPAR formula RPAR .)
+
+
+state 67
+
+    (34) formula -> LPAR list_p RPAR .
+
+    TERM            reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    $end            reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    AND             reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    ATEND           reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    ALWAYS          reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    SOMETIME        reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    WITHIN          reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    ATMOSTONCE      reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    SOMETIMEAFTER   reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    SOMETIMEBEFORE  reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    ALWAYSWITHIN    reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    IMPLIES         reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    NOT             reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    HOLDDURING      reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    HOLDAFTER       reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    FORALL          reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    LPAR            reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    VAR             reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    NUM             reduce using rule 34 (formula -> LPAR list_p RPAR .)
+    RPAR            reduce using rule 34 (formula -> LPAR list_p RPAR .)
+
+
+state 68
+
+    (25) vars -> VAR TERM TYP . TERM
+
+    TERM            shift and go to state 74
+
+
+state 69
+
+    (20) param -> VAR TERM .
+
+    TERM            reduce using rule 20 (param -> VAR TERM .)
+    NUM             reduce using rule 20 (param -> VAR TERM .)
+    VAR             reduce using rule 20 (param -> VAR TERM .)
+    AND             reduce using rule 20 (param -> VAR TERM .)
+    ATEND           reduce using rule 20 (param -> VAR TERM .)
+    ALWAYS          reduce using rule 20 (param -> VAR TERM .)
+    SOMETIME        reduce using rule 20 (param -> VAR TERM .)
+    WITHIN          reduce using rule 20 (param -> VAR TERM .)
+    ATMOSTONCE      reduce using rule 20 (param -> VAR TERM .)
+    SOMETIMEAFTER   reduce using rule 20 (param -> VAR TERM .)
+    SOMETIMEBEFORE  reduce using rule 20 (param -> VAR TERM .)
+    ALWAYSWITHIN    reduce using rule 20 (param -> VAR TERM .)
+    IMPLIES         reduce using rule 20 (param -> VAR TERM .)
+    NOT             reduce using rule 20 (param -> VAR TERM .)
+    HOLDDURING      reduce using rule 20 (param -> VAR TERM .)
+    HOLDAFTER       reduce using rule 20 (param -> VAR TERM .)
+    FORALL          reduce using rule 20 (param -> VAR TERM .)
+    LPAR            reduce using rule 20 (param -> VAR TERM .)
+    $end            reduce using rule 20 (param -> VAR TERM .)
+    RPAR            reduce using rule 20 (param -> VAR TERM .)
+
+
+state 70
+
+    (9) formula -> ALWAYSWITHIN NUM formula formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    $end            reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    AND             reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    ATEND           reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    ALWAYS          reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    SOMETIME        reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    WITHIN          reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    ATMOSTONCE      reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    SOMETIMEAFTER   reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    SOMETIMEBEFORE  reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    ALWAYSWITHIN    reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    IMPLIES         reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    NOT             reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    HOLDDURING      reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    HOLDAFTER       reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    FORALL          reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    LPAR            reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    VAR             reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    NUM             reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    RPAR            reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 9 (formula -> ALWAYSWITHIN NUM formula formula .) ]
+
+
+state 71
+
+    (12) formula -> HOLDDURING NUM NUM formula .
+    (15) formula -> formula . TERM
+
+  ! shift/reduce conflict for TERM resolved as shift
+    $end            reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    AND             reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    ATEND           reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    ALWAYS          reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    SOMETIME        reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    WITHIN          reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    ATMOSTONCE      reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    SOMETIMEAFTER   reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    SOMETIMEBEFORE  reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    ALWAYSWITHIN    reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    IMPLIES         reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    NOT             reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    HOLDDURING      reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    HOLDAFTER       reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    FORALL          reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    LPAR            reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    VAR             reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    NUM             reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    RPAR            reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .)
+    TERM            shift and go to state 23
+
+  ! TERM            [ reduce using rule 12 (formula -> HOLDDURING NUM NUM formula .) ]
+
+
+state 72
+
+    (29) list_v -> LPAR list_v RPAR .
+
+    AND             reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    ATEND           reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    ALWAYS          reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    SOMETIME        reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    WITHIN          reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    ATMOSTONCE      reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    SOMETIMEAFTER   reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    SOMETIMEBEFORE  reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    ALWAYSWITHIN    reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    IMPLIES         reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    NOT             reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    HOLDDURING      reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    HOLDAFTER       reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    FORALL          reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    LPAR            reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    VAR             reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    TERM            reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    NUM             reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+    RPAR            reduce using rule 29 (list_v -> LPAR list_v RPAR .)
+
+
+state 73
+
+    (28) list_v -> list_v vars .
+
+    RPAR            reduce using rule 28 (list_v -> list_v vars .)
+    VAR             reduce using rule 28 (list_v -> list_v vars .)
+
+
+state 74
+
+    (25) vars -> VAR TERM TYP TERM .
+
+    TERM            reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    $end            reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    AND             reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    ATEND           reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    ALWAYS          reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    SOMETIME        reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    WITHIN          reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    ATMOSTONCE      reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    SOMETIMEAFTER   reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    SOMETIMEBEFORE  reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    ALWAYSWITHIN    reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    IMPLIES         reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    NOT             reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    HOLDDURING      reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    HOLDAFTER       reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    FORALL          reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    LPAR            reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    VAR             reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    NUM             reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+    RPAR            reduce using rule 25 (vars -> VAR TERM TYP TERM .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for TERM in state 19 resolved as shift
+WARNING: shift/reduce conflict for NUM in state 19 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 19 resolved as shift
+WARNING: shift/reduce conflict for AND in state 19 resolved as shift
+WARNING: shift/reduce conflict for ATEND in state 19 resolved as shift
+WARNING: shift/reduce conflict for ALWAYS in state 19 resolved as shift
+WARNING: shift/reduce conflict for SOMETIME in state 19 resolved as shift
+WARNING: shift/reduce conflict for WITHIN in state 19 resolved as shift
+WARNING: shift/reduce conflict for ATMOSTONCE in state 19 resolved as shift
+WARNING: shift/reduce conflict for SOMETIMEAFTER in state 19 resolved as shift
+WARNING: shift/reduce conflict for SOMETIMEBEFORE in state 19 resolved as shift
+WARNING: shift/reduce conflict for ALWAYSWITHIN in state 19 resolved as shift
+WARNING: shift/reduce conflict for IMPLIES in state 19 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 19 resolved as shift
+WARNING: shift/reduce conflict for HOLDDURING in state 19 resolved as shift
+WARNING: shift/reduce conflict for HOLDAFTER in state 19 resolved as shift
+WARNING: shift/reduce conflict for FORALL in state 19 resolved as shift
+WARNING: shift/reduce conflict for LPAR in state 19 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 22 resolved as shift
+WARNING: shift/reduce conflict for NUM in state 22 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 22 resolved as shift
+WARNING: shift/reduce conflict for AND in state 24 resolved as shift
+WARNING: shift/reduce conflict for ATEND in state 24 resolved as shift
+WARNING: shift/reduce conflict for ALWAYS in state 24 resolved as shift
+WARNING: shift/reduce conflict for SOMETIME in state 24 resolved as shift
+WARNING: shift/reduce conflict for WITHIN in state 24 resolved as shift
+WARNING: shift/reduce conflict for ATMOSTONCE in state 24 resolved as shift
+WARNING: shift/reduce conflict for SOMETIMEAFTER in state 24 resolved as shift
+WARNING: shift/reduce conflict for SOMETIMEBEFORE in state 24 resolved as shift
+WARNING: shift/reduce conflict for ALWAYSWITHIN in state 24 resolved as shift
+WARNING: shift/reduce conflict for IMPLIES in state 24 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 24 resolved as shift
+WARNING: shift/reduce conflict for HOLDDURING in state 24 resolved as shift
+WARNING: shift/reduce conflict for HOLDAFTER in state 24 resolved as shift
+WARNING: shift/reduce conflict for FORALL in state 24 resolved as shift
+WARNING: shift/reduce conflict for LPAR in state 24 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 24 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 24 resolved as shift
+WARNING: shift/reduce conflict for NUM in state 24 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 25 resolved as shift
+WARNING: shift/reduce conflict for AND in state 25 resolved as shift
+WARNING: shift/reduce conflict for ATEND in state 25 resolved as shift
+WARNING: shift/reduce conflict for ALWAYS in state 25 resolved as shift
+WARNING: shift/reduce conflict for SOMETIME in state 25 resolved as shift
+WARNING: shift/reduce conflict for WITHIN in state 25 resolved as shift
+WARNING: shift/reduce conflict for ATMOSTONCE in state 25 resolved as shift
+WARNING: shift/reduce conflict for SOMETIMEAFTER in state 25 resolved as shift
+WARNING: shift/reduce conflict for SOMETIMEBEFORE in state 25 resolved as shift
+WARNING: shift/reduce conflict for ALWAYSWITHIN in state 25 resolved as shift
+WARNING: shift/reduce conflict for IMPLIES in state 25 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 25 resolved as shift
+WARNING: shift/reduce conflict for HOLDDURING in state 25 resolved as shift
+WARNING: shift/reduce conflict for HOLDAFTER in state 25 resolved as shift
+WARNING: shift/reduce conflict for FORALL in state 25 resolved as shift
+WARNING: shift/reduce conflict for LPAR in state 25 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 25 resolved as shift
+WARNING: shift/reduce conflict for NUM in state 25 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 26 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 35 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 39 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 42 resolved as shift
+WARNING: shift/reduce conflict for NUM in state 42 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 42 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 43 resolved as shift
+WARNING: shift/reduce conflict for RPAR in state 46 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 46 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 50 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 51 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 53 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 57 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 59 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 70 resolved as shift
+WARNING: shift/reduce conflict for TERM in state 71 resolved as shift
+WARNING: reduce/reduce conflict in state 42 resolved using rule (list_p -> param)
+WARNING: rejected rule (list_p -> list_p param) in state 42
+WARNING: reduce/reduce conflict in state 52 resolved using rule (formula -> formula TERM)
+WARNING: rejected rule (param -> TERM) in state 52
+WARNING: reduce/reduce conflict in state 61 resolved using rule (formula -> vars)
+WARNING: rejected rule (list_v -> list_v vars) in state 61
+WARNING: Rule (list_p -> list_p param) is never reduced
