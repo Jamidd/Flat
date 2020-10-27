@@ -3,7 +3,7 @@ import sys
 import apt
 import re
 
-sys.path.insert(1, './DFA2RM')
+sys.path.insert(1, './functions')
 
 #  import and check all dependencies have been meet
 try:
@@ -16,7 +16,7 @@ try:
 except ModuleNotFoundError:
     print("Dependencies have not been met. Please run 'sh dependencies.sh' on the terminal")
     if input("Do you want me to run it for you (y/n)").lower() in ["y", "yes"]:
-        os.system("sh DFA2RM/dependencies.sh")
+        os.system("sh functions/dependencies.sh")
         print('-'*25)
         import dd
         import ply
@@ -25,7 +25,7 @@ except ModuleNotFoundError:
     else:
         exit()
 
-from dfa2rm import automatas_to_rm, get_dfas, dfa_intersection_to_rm, read_formula, write_output
+from functions import automatas_to_rm, get_dfas, dfa_intersection_to_rm, read_formula, write_output
 
 if __name__ == '__main__':
     def send_error(text, help=True):
