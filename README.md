@@ -1,6 +1,6 @@
 # FLAT
 FLAT is a **F**ormal **L**anguage to **A**utomaton **T**ransmogrifier. It compiles many temporally extended objective specification languages to DFA or [Reward Machine](https://www.ijcai.org/Proceedings/2019/840).
-This tool is also available as a web service at [[fl-at.jaimemiddleton.cl](fl-at.jaimemiddleton.cl)](http://fl-at.jaimemiddleton.cl/).
+This tool is also available as a web service at [fl-at.jaimemiddleton.cl](http://fl-at.jaimemiddleton.cl/).
 
 ## Dependencies
 FLAT is built on top on MONA, which you can obtain [here](https://www.brics.dk/mona/download.html).  
